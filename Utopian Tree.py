@@ -13,14 +13,15 @@ class Solution(object):
         :param cipher: the cipher
         """
         N = int(cipher[0])
-        initial = 1
+        # initial = 1  # wrong var name
+        height = 1  # initialization
         for cycle in xrange(N):
             if cycle&1==0:
-                initial *= 2
+                height *= 2
             else:
-                initial += 1
+                height += 1
 
-        return initial
+        return height
 
 
 if __name__=="__main__":
