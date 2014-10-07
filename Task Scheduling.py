@@ -13,7 +13,7 @@ __author__ = 'Danyang'
 class Solution(object):
     def solve(self, cipher):
         """
-        Small test cases pass. Sort by deadline and complete them one by one 
+        Small test cases pass. Sort by deadline and complete them one by one
 
         for complete solution: https://github.com/ningke/tasksched
 
