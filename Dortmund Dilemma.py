@@ -54,7 +54,7 @@ class Solution(object):
                 self.G[i][j] %= MOD
 
                 total *= j
-                total %= MOD
+                total %= MOD  # otherwise time out
 
 
     def solve(self, cipher):
@@ -64,16 +64,15 @@ class Solution(object):
         """
         N, K = cipher
 
+        P = 0
         if K==1:
-            P = self.G[N][K]
+            P += self.G[N][K]
         else:
-            P = self.G[N][K]
-            for j in xrange(1, K):
+            for j in xrange(K, 0, -1):
+                # P = self.G[N][K]
                 # P -= G[j] * (self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
-                if K&1==1:
-                    P -= (-1)**j*self.G[N][j]*(self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
-                else:
-                    P += (-1)**j*self.G[N][j]*(self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
+                # PIE: Principle of Inclusion-Exclusion
+                P += (-1)**(K-j)*self.G[N][j]*(self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
                 P %= MOD
 
         result = P * (self.factorials[26]/(self.factorials[K]*self.factorials[26-K]))
