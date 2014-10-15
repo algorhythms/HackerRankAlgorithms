@@ -237,3 +237,4 @@ uwsgi_params
 ## I/O
 *.in
 *.out
+pdf/
