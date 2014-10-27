@@ -13,6 +13,14 @@ The second line contains a permutation from 1 to N.
 """
 __author__ = 'Danyang'
 class Solution(object):
+    def solve(self, cipher):
+        """
+        :type cipher: list
+        :param cipher
+        """
+        #TODO
+
+
     def solve_error(self, cipher):
         """
         sliding window, error.
@@ -37,6 +45,7 @@ class Solution(object):
     def count(self, start, end):
         l = end-start
         return (l+1)*l/2
+
 
 
 
