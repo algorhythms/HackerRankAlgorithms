@@ -15,7 +15,11 @@ __author__ = 'Danyang'
 class Solution(object):
     def solve(self, cipher):
         """
-        main solution function
+        Array, Math, Range
+        Range & Complementary Range
+
+        [i , j] plus k == [i, +\infty] plus k with [j+1, +\infty] subtract k
+
         :param cipher: the cipher
         """
         N, M, queries = cipher
