@@ -53,10 +53,12 @@ class Solution(object):
         """
         Median_Heap
 
+        Still TLE
         Notice that 6, 7, 8 test cases time out 
 
         :param cipher: the cipher
         """
+        # TODO
         op = cipher[0]
         num = int(cipher[1])
         if op=="r":
