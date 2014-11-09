@@ -69,8 +69,7 @@ int get_sum(int i) {
     if(v_sum[i]==0) {
         visited[i] = order++;
         v_sum[i] = data[i];
-        for(int ind=0; ind<G[i].size(); ind++) { // auto is C11
-            int n = G[i][ind];
+        for(auto n: G[i]) {
             if(visited[n]==0)
                 v_sum[i] += get_sum(n);
         }
@@ -84,8 +83,7 @@ int solve() {
     get_sum(0);
 
     int mini = 1<<31-1;
-    for(int ind=0; ind<E.size(); ind++) { // auto is C11
-        pair<int, int> e = E[ind];
+    for(auto e: E) { // auto is C11
         int u = e.first;
         int v = e.second;
         if(visited[u]>visited[v]) {
