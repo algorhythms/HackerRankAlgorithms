@@ -78,8 +78,8 @@ int get_sum(int i) {
 }
 int solve() {
     int total = 0;
-    for(int i=0; i<data.size(); i++)
-        total += data[i];
+    for(auto d: data)
+        total += d;
     get_sum(0);
 
     int mini = 1<<31-1;
