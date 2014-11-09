@@ -17,8 +17,8 @@ Output Format
 A single line containing the minimum value of *Tree_diff*.
 
 Constraints
-3 ≤ N ≤ 105
-1 ≤ number written on each vertex ≤ 1001
+3 <= N <= 105
+1 <= number written on each vertex <= 1001
 
 Sample Input
 
@@ -66,65 +66,65 @@ vector<vector< int> > G;
 
 
 int get_sum(int i) {
-	if(v_sum[i]==0) {
-		visited[i] = order++;
-		v_sum[i] = data[i];
-		for(int ind=0; ind<G[i].size(); ind++) { // auto is C11
-			int n = G[i][ind];
-			if(visited[n]==0)
-				v_sum[i] += get_sum(n);
-		}
-	}
-	return v_sum[i];
+    if(v_sum[i]==0) {
+        visited[i] = order++;
+        v_sum[i] = data[i];
+        for(int ind=0; ind<G[i].size(); ind++) { // auto is C11
+            int n = G[i][ind];
+            if(visited[n]==0)
+                v_sum[i] += get_sum(n);
+        }
+    }
+    return v_sum[i];
 }
 int solve() {
-	int total = 0;
-	for(int i=0; i<data.size(); i++)
-		total += data[i];
-	get_sum(0);
+    int total = 0;
+    for(int i=0; i<data.size(); i++)
+        total += data[i];
+    get_sum(0);
 
-	int mini = 1<<31-1;
-	for(int ind=0; ind<E.size(); ind++) { // auto is C11
-		pair<int, int> e = E[ind];
-		int u = e.first;
-		int v = e.second;
-		if(visited[u]>visited[v]) {
-			mini = min(mini, abs(total-2*get_sum(u)) );
-		}
-		else {
-			mini = min(mini, abs(total-2*get_sum(v)));
-		}
-	}
+    int mini = 1<<31-1;
+    for(int ind=0; ind<E.size(); ind++) { // auto is C11
+        pair<int, int> e = E[ind];
+        int u = e.first;
+        int v = e.second;
+        if(visited[u]>visited[v]) {
+            mini = min(mini, abs(total-2*get_sum(u)) );
+        }
+        else {
+            mini = min(mini, abs(total-2*get_sum(v)));
+        }
+    }
 
-	return mini;
+    return mini;
 }
 int main() {
-	// freopen("out.txt","w",stdout);
-	freopen("1.in","r", stdin);
-	cin>>N;
-	visited.resize(N);
-	E.resize(N-1);
-	G.resize(N);
-	v_sum.resize(N);
-	data.resize(N);
+    // freopen("out.txt","w",stdout);
+    freopen("1.in","r", stdin);
+    cin>>N;
+    visited.resize(N);
+    E.resize(N-1);
+    G.resize(N);
+    v_sum.resize(N);
+    data.resize(N);
 
-	for(int i=0; i<N; i++) {
-		cin>>data[i];
-	}
+    for(int i=0; i<N; i++) {
+        cin>>data[i];
+    }
 
-	int u, v;
-	for(int i=0; i<N-1; i++) {
-		cin>>u>>v;
-		u--;
-		v--;
-		E[i] = make_pair(u, v);
-		G[u].push_back(v);
-		G[v].push_back(u);
-	}
+    int u, v;
+    for(int i=0; i<N-1; i++) {
+        cin>>u>>v;
+        u--;
+        v--;
+        E[i] = make_pair(u, v);
+        G[u].push_back(v);
+        G[v].push_back(u);
+    }
 
-	int result = solve();
-	cout<<result<<endl;
-	return 0;
+    int result = solve();
+    cout<<result<<endl;
+    return 0;
 }
 
 
