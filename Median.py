@@ -45,7 +45,7 @@ class Solution_TLE(object):
         else:
             return pq[length/2]
 
-class Solution(object):
+class Solution_TLE2(object):
     def __init__(self):
         self.min_heap = []
         self.max_heap = []  # no max heap in Python
@@ -107,10 +107,42 @@ class Solution(object):
         else:
             return -self.max_heap[0]
 
+from bisect import bisect_left
+class Solution(object):
+    def __init__(self):
+        self.A = []
+    def solve(self, cipher):
+        """
+        bisect
+        """
+        op = cipher[0]
+        val = int(cipher[1])
+
+        pos = bisect_left(self.A, val)
+        if op=="r":
+            if pos>=len(self.A) or self.A[pos]!=val:
+                return "Wrong!"
+            else:
+                del(self.A[pos])
+        else: # "a"
+            self.A.insert(pos, val)
+
+        l = len(self.A)
+        if l==0:
+            return "Wrong!"
+        elif l&1==1:
+            return self.A[l/2]
+        else:
+            output = str(0.5*(self.A[l/2-1]+self.A[l/2]))
+            if output[-2:]==".0":
+                output = output[:-2]
+            return output
+
+
 
 if __name__=="__main__":
     import sys
-    f = open("1.in", "r")
+    f = open("0.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())
     solution = Solution()
