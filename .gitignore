@@ -26,7 +26,8 @@ local.properties
 
 # PDT-specific
 .buildpath
-
+Debug/
+Release/
 
 #################
 ## Visual Studio
