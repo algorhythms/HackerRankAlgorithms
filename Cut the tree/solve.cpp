@@ -83,7 +83,6 @@ int main() {
         G[u].push_back(v);
         G[v].push_back(u);
     }
-
     int result = solve();
     cout<<result<<endl;
     return 0;
