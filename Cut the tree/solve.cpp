@@ -17,6 +17,7 @@
 #include <limits>
 #include <sstream>
 #include <iterator>
+#define SHOW_A(x) {cout << #x << ": " << x << endl;}
 using namespace std;
 // #define miN(a,b) ( (a) < (b) ? (a) : (b))
 int order = 0;
@@ -30,6 +31,7 @@ vector<vector< int> > G;
 
 
 int get_sum(int i) {
+	SHOW_A(i);
     if(v_sum[i]==0) {
         visited[i] = order++;
         v_sum[i] = data[i];
