@@ -1,5 +1,19 @@
 __author__ = 'Danyang'
+import logging
+import sys
+
 class Solution(object):
+    @property
+    def logger(self):
+        lgr = logging.getLogger(__name__)
+        lgr.setLevel(logging.CRITICAL)
+        if not lgr.handlers:
+            ch = logging.StreamHandler(sys.stdout)
+            ch.setLevel(logging.DEBUG)
+            ch.setFormatter(logging.Formatter('%(levelname)s - %(message)s'))
+            lgr.addHandler(ch)
+        return lgr
+
     def solve(self, cipher):
         """
         bfs
@@ -53,7 +67,7 @@ class Solution(object):
             path.append(cur)
 
         path.reverse()
-        # print path
+        self.logger.debug(str(path))
         cnt = 0
         visited = [[False for _ in xrange(N)] for _ in xrange(M)]
         for cur in path[:-1]:
@@ -67,12 +81,11 @@ class Solution(object):
                         dir_cnt += 1
             if dir_cnt>1:
                 cnt += 1
-                # print "Wand @ ",
-                # print cur
+                self.logger.debug("Wand@"+str(cur))
             if cnt>K:
                 return "Oops!"
 
-        # print "cnt: %d, K: %d"%(cnt, K)
+        self.logger.debug("cnt: %d, K: %d"%(cnt, K))
         if cnt==K:  # exactly K times
             return "Impressed"
         else:
@@ -83,7 +96,6 @@ class Solution(object):
 
 
 if __name__=="__main__":
-    import sys
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())
