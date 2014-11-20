@@ -7,5 +7,5 @@ Fight, fight till the end of the world of algorithms.
 Keep pushing.  
 
 ##Languages 
-The repo is mixed up with Python 2.7.x and C++11, and I find the later more elegant.  
+The repo is mixed up with Python 2.7.x and C++11, and I find the latter more elegant.  
 
