@@ -47,7 +47,7 @@ class Solution(object):
         R1, C1 = len(matrix), len(matrix[0])
         R2, C2 = len(pattern), len(pattern[0])
 
-        dp = [[0 for _ in xrange(C1+1)] for _ in xrange(R1+1)]
+        dp = [[0 for _ in xrange(C1+1)] for _ in xrange(R1+1)]  # note the dummies
 
         for i in xrange(1, R1+1):
             for j in xrange(1, C1+1):

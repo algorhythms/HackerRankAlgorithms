@@ -15,7 +15,7 @@ if __name__=="__main__":
 
     for t in xrange(testcases):
         # construct cipher
-        cipher = f.readline().strip().split(' ')
+        cipher = map(int, f.readline().strip().split(' '))
 
         # solve
         s = "%s\n"%(Solution().solve(cipher))
