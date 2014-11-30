@@ -29,7 +29,7 @@ class Solution(object):
             else:
                 return "NO"
 
-        # when there are 3 or more digits 
+        # when there are 3 or more digits
         hm = [0 for _ in xrange(10)]
         for char in cipher:
             hm[int(char)] += 1
