@@ -11,6 +11,7 @@ if __name__=="__main__":
     import sys
     f = open("1.in", "r")
     # f = sys.stdin
+    solution = Solution()
     testcases = int(f.readline().strip())
 
     for t in xrange(testcases):
@@ -18,5 +19,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n"%(solution.solve(cipher))
         print s,

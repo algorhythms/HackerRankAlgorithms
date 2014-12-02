@@ -12,11 +12,10 @@ class Solution(object):
     def solve(self, cipher):
         """
         Multiplication
-        Algorithms to increment the paths 
+        Algorithms to increment the paths
         :param cipher: the cipher
         """
-        A = cipher
-        N = len(A)
+        N, A = cipher
         cnts = [0 for _ in xrange(N+1)]
         for num in A:
             cnts[num] += 1
@@ -41,13 +40,14 @@ if __name__=="__main__":
     import sys
     f = open("1.in", "r")
     # f = sys.stdin
+    solution = Solution()
     testcases = int(f.readline().strip())
 
     for t in xrange(testcases):
         # construct cipher
         N = int(f.readline().strip())
-        cipher = map(int, f.readline().strip().split(' '))
-
+        A = map(int, f.readline().strip().split(' '))
+        cipher = N, A
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n"%(solution.solve(cipher))
         print s,
