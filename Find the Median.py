@@ -9,7 +9,7 @@ __author__ = 'Danyang'
 class Solution(object):
     def solve(self, cipher):
         """
-        main solution function
+        partial quick sort
         :param cipher: the cipher
         """
         N, A = cipher
@@ -20,7 +20,7 @@ class Solution(object):
 
     def find_kth(self, A, i, j, k):
         """
-
+        partial quick sort
         """
         p = self.partition(A, i, j)
         if p==k:
@@ -38,19 +38,13 @@ class Solution(object):
 
         p = i
         ptr_smaller = p
-        for ptr in xrange(p+1, j+1):  # 1 for loop 
+        for ptr in xrange(p+1, j+1):  # 1 for loop
             if A[ptr]<A[p]:
                 ptr_smaller += 1
                 A[ptr], A[ptr_smaller] = A[ptr_smaller], A[ptr]
 
         A[p], A[ptr_smaller] = A[ptr_smaller], A[p]
         return ptr_smaller
-
-
-
-
-
-
 
 
 if __name__=="__main__":
