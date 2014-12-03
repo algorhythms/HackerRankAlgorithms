@@ -17,6 +17,8 @@ class Solution(object):
 
         consider i: 1+2+..i+...+1 = i*(l-(i-1))
 
+        if start from 0:
+        (i+1)*(N-i)
         :param cipher: the cipher
         """
         N, A = cipher
