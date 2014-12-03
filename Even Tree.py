@@ -8,7 +8,7 @@ number of vertices.
 __author__ = 'Danyang'
 class Solution(object):
     def __init__(self, N, M):
-        self.f = [0 for _ in xrange(N+1)]  # store the number of nodes of a substree rooted at i
+        self.f = [0 for _ in xrange(N+1)]  # store the number of nodes of a subtree rooted at i
         self.V = [[] for _ in xrange(N+1)]  # 0 is dummy
         self.E = []
 
@@ -29,7 +29,7 @@ class Solution(object):
         self.get_sum(1, 0)
 
         result = 0
-        for i in xrange(2, N+1):  # excluding root 
+        for i in xrange(2, N+1):  # excluding root
             if self.f[i]%2==0:
                 result += 1
         return result
