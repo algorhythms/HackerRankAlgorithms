@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
