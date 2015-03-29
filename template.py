@@ -12,7 +12,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
-    f = open("1.in", "r")
+    f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
     testcases = int(f.readline().strip())
