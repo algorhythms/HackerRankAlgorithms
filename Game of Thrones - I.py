@@ -2,14 +2,15 @@
 """
 Help him figure out whether any anagram of the string can be a palindrome or not.
 """
-import  collections
+import collections
 
 __author__ = 'Danyang'
+
 
 class Solution(object):
     def solve(self, cipher):
         """
-        main solution function
+        collect to map
         :param cipher: the cipher
         """
         d = collections.defaultdict(int)
@@ -23,7 +24,6 @@ class Solution(object):
             if cnt>1:
                 return "NO"
         return "YES"
-
 
 
 if __name__=="__main__":
