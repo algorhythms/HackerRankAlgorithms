@@ -32,7 +32,7 @@ class Solution(object):
 
         :param cipher: the cipher
         """
-        return self.prime(self.get_configs(cipher))
+        return self.sum_prime(self.get_configs(cipher))
 
     def get_configs(self, N):
         if N<4:
@@ -67,13 +67,14 @@ class Solution(object):
     def sum_prime(self, n):
         """
         HackerRank does not support numpy
+        Sieve of Eratosthenes
         """
         import numpy as np
         is_prime = np.ones((n+1, ), dtype=bool)
         is_prime[:2] = 0
-        N_max = int(np.sqrt(len(is_prime)))
-        for j in xrange(2, N_max+1):
-            is_prime[2*j::j] = False
+        N_max = int(np.sqrt(len(is_prime)))  # just to speed up
+        for j in xrange(2, N_max):
+            is_prime[2*j::j] = False  # not start from j, since don't clean j itself
         return np.sum(is_prime)
 
 
