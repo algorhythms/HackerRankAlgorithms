@@ -14,7 +14,7 @@ __author__ = 'Danyang'
 class Solution(object):
     def solve(self, cipher):
         """
-        main solution function
+        similar to next permutation
         :param cipher: the cipher
         """
         A = list(cipher)
