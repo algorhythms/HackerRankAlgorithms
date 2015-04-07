@@ -14,7 +14,7 @@ __author__ = 'Danyang'
 class Solution(object):
     def solve(self, cipher):
         """
-        dp
+        dp, chaining
 
         L[i] represents the index of LEFT(i)
         R[i] represents the index of RIGHT(i)
@@ -47,13 +47,13 @@ class Solution(object):
 
         maxa = -1
         for i in xrange(len(A)):
-            left = L[i]+1 if L[i]!=-1 else 0
-            right = R[i]+1 if R[i]!=-1 else 0
+            left = L[i]+1
+            right = R[i]+1
             maxa = max(maxa, left*right)
 
         return maxa
 
-    
+
 if __name__=="__main__":
     import sys
     f = open("0.in", "r")
