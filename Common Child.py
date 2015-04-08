@@ -9,6 +9,8 @@ Input format
 Two strings a and b with a newline separating them
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve_error(self, cipher):
         """
@@ -55,6 +57,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     cipher = []

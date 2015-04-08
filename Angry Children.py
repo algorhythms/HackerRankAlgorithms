@@ -17,6 +17,8 @@ The second line contains an integer K. N lines follow. Each line contains an int
 packet.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve_TLE(self, cipher):
         """
@@ -62,7 +64,6 @@ class Solution(object):
 
             global_min = min(global_min, maxa-mini)
 
-
         return global_min
 
 
@@ -87,9 +88,9 @@ class Solution(object):
         return global_min
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

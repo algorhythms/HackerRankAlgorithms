@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Atul is into graph theory, and he is learning about trees nowadays. He observed that the removal of an edge from a given
 tree T will result in formation of two separate trees T1 and T2.
@@ -35,6 +35,8 @@ Sample Output
 400
 """
 __author__ = 'Danyang'
+
+
 class TreeNode(object):
     def __init__(self, item):
         self.item = item
@@ -44,6 +46,7 @@ class TreeNode(object):
 
     def __repr__(self):
         return repr(self.item)
+
 
 class Solution_error(object):
     def solve(self, cipher):
@@ -66,10 +69,9 @@ class Solution_error(object):
         if not root:
             return
 
-        mini[0] = min(mini[0], abs(total-root.tree_sum - root.tree_sum))
+        mini[0] = min(mini[0], abs(total-root.tree_sum-root.tree_sum))
         self.dfs(root.left, total, mini)
         self.dfs(root.right, total, mini)
-
 
 
     def construct_tree(self, cipher):
@@ -96,10 +98,6 @@ class Solution_error(object):
                 lst[parent].left = lst[child]
             else:
                 lst[parent].right = lst[child]
-
-
-
-
 
         return lst[0]
 
@@ -175,25 +173,26 @@ class Solution(object):
             if v_sum[s]==-1:
                 visited[s] = self.__inc_order()
                 v_sum[s] = data[s]
-                for n in G[s]: # dfs
+                for n in G[s]:  # dfs
                     if visited[n]==-1:
                         v_sum[s] += get_sum(n)
             return v_sum[s]
+
         get_sum(0)
 
         mini = 1<<32
         for e in E:
             u, v = e
             if visited[u]>visited[v]:  # if smaller, the node is in the middle of subtree
-                mini = min(mini, abs(_sum - get_sum(u) - get_sum(u)))
+                mini = min(mini, abs(_sum-get_sum(u)-get_sum(u)))
             else:
-                mini = min(mini, abs(_sum - get_sum(v) - get_sum(v)))
+                mini = min(mini, abs(_sum-get_sum(v)-get_sum(v)))
         return mini
-
 
 
 if __name__=="__main__":
     import sys
+
     sys.setrecursionlimit(100000)  # otherwise not enough, stack problem with python
     # print sys.getrecursionlimit()
     f = open("1.in", "r")

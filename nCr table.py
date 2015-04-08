@@ -14,6 +14,8 @@ T lines follow each containing an integer n.
 """
 MOD = 10**9
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, n):
         """
@@ -33,6 +35,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

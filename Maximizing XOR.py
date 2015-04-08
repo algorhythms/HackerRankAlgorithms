@@ -14,6 +14,8 @@ Output Format
 The maximal value as mentioned in the problem statement.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -26,6 +28,7 @@ class Solution(object):
             for j in xrange(i+1, B+1):
                 global_max = max(global_max, i^j)
         return global_max
+
 
 if __name__=="__main__":
     import sys

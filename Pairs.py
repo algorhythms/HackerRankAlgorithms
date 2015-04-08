@@ -14,6 +14,8 @@ N <= 10^5
 Each integer will be greater than 0 and at least K smaller than 2^31-1
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -36,8 +38,10 @@ class Solution(object):
                 cnt += hm[target]
         return cnt
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, K = map(int, f.readline().strip().split(' '))

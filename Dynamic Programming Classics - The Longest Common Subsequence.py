@@ -6,6 +6,8 @@ order of the remaining elements. Longest common subsequence (LCS) of 2 sequences
 which is common to both the sequences.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -31,6 +33,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

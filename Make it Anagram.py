@@ -13,6 +13,8 @@ Input Format
 Two lines each containing a string.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve_MLE(self, cipher):
         """
@@ -61,8 +63,10 @@ class Solution(object):
 
         return counter
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     cipher = []

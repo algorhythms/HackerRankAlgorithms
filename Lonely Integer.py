@@ -15,6 +15,8 @@ N % 2 = 1 ( N is an odd number )
 0 <= A[i] <= 100, ∀ i ∈ [1, N]
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -28,8 +30,10 @@ class Solution(object):
             bit ^= item
         return bit
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

@@ -16,6 +16,8 @@ The first line contains an integer T, the number of testcases.
 T lines follow. Each line contains N, the initial number set in the counter.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -31,7 +33,7 @@ class Solution(object):
             else:
                 num = 1
                 while num<N:
-                    num <<=1
+                    num <<= 1
                 num >>= 1
                 N -= num
 
@@ -41,9 +43,9 @@ class Solution(object):
             return "Louise"
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

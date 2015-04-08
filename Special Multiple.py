@@ -16,6 +16,8 @@ Output Format
 Print the answer X to STDOUT corresponding to each test case. The output should not contain any leading zeroes.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -36,6 +38,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

@@ -2,6 +2,7 @@ __author__ = 'Danyang'
 import logging
 import sys
 
+
 class Solution(object):
     @property
     def logger(self):
@@ -24,7 +25,6 @@ class Solution(object):
         dirs = ((1, 0), (-1, 0), (0, 1), (0, -1))
         M, N, matrix, K = cipher
 
-
         start = None
         end = None
         for i in xrange(M):
@@ -33,7 +33,6 @@ class Solution(object):
                     start = (i, j)
                 elif matrix[i][j]=="*":
                     end = (i, j)
-
 
         pi = [[None for _ in xrange(N)] for _ in xrange(M)]
         visited = [[False for _ in xrange(N)] for _ in xrange(M)]
@@ -90,9 +89,6 @@ class Solution(object):
             return "Impressed"
         else:
             return "Oops!"
-
-
-
 
 
 if __name__=="__main__":

@@ -6,6 +6,8 @@ Now, a new Utopian tree sapling is planted at the onset of the monsoon. Its heig
 of the tree after N growth cycles?
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -32,7 +34,7 @@ if __name__=="__main__":
 
     for t in xrange(testcases):
         # construct cipher
-        cipher =  f.readline().strip().split(' ')
+        cipher = f.readline().strip().split(' ')
 
         # solve
         s = "%s\n"%(Solution().solve(cipher))

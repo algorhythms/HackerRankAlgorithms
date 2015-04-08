@@ -18,6 +18,8 @@ having length (a+b) which will be concatenation of both the strings described ab
 contain small letters and there will be no spaces in the string.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -35,7 +37,7 @@ class Solution(object):
         # # simplified edit distance
         # cum = 0
         # for i in xrange(length/2):
-        #     if str1_lst[i]!=str2_lst[i]:
+        # if str1_lst[i]!=str2_lst[i]:
         #         cum += 1
         # return cum
 
@@ -50,6 +52,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

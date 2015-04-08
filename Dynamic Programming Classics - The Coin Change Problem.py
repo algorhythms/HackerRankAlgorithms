@@ -5,6 +5,8 @@ How many different ways can you make change for an amount, given a list of coins
 to efficiently compute the answer.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def __init__(self):
         self.combs = {}
@@ -36,9 +38,9 @@ class Solution(object):
         return self.combs[(t, k)]
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

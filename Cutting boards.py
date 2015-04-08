@@ -22,11 +22,14 @@ spaces.
 """
 MOD = 10**9+7
 __author__ = 'Danyang'
+
+
 class Cost(object):
     def __init__(self):
         self.cost = 0
+
     def __iadd__(self, other):
-        self.cost = (self.cost + other%MOD)%MOD
+        self.cost = (self.cost+other%MOD)%MOD
         return self
 
 
@@ -67,6 +70,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

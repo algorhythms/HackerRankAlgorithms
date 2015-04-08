@@ -11,6 +11,8 @@ Find the total number of routes Gandalf can take to reach Rivendell from Rohan.
 """
 __author__ = 'Danyang'
 MOD = 1234567
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -22,6 +24,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

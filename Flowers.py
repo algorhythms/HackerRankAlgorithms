@@ -16,6 +16,8 @@ Output:
 Print the minimum amount of money you (and your friends) have to pay in order to buy all N flowers.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -39,6 +41,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, K = map(int, f.readline().strip().split(' '))

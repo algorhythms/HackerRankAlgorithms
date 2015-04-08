@@ -12,6 +12,7 @@ Each of the next Q lines contain one integer per line denoting x.
 """
 __author__ = 'Danyang'
 
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -29,6 +30,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, K, Q = map(int, f.readline().strip().split(' '))

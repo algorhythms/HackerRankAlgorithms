@@ -16,6 +16,8 @@ Each testcase contains two lines, first line will contains an integer N followed
 separated by a single space.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -29,9 +31,9 @@ class Solution(object):
         return reduce(lambda x, y: x|y, lst)*2**(length-1)%(10**9+7)
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

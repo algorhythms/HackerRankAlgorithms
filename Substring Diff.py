@@ -12,6 +12,8 @@ The first line of input contains a single integer, T (1 <= T <= 10). T test case
 Each test case consists of an integer, S, and two strings P and Q separated by a single space.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -50,7 +52,7 @@ class Solution(object):
             if p[i]!=q[j]:
                 cur_diff += 1
 
-            if cur_diff>S: # then shrink the left side of window
+            if cur_diff>S:  # then shrink the left side of window
                 while p[start_i]==q[start_j]:
                     start_i += 1
                     start_j += 1
@@ -68,6 +70,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

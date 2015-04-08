@@ -8,6 +8,8 @@ cards previously) In how many ways can all the cards be picked up?
 """
 __author__ = 'Danyang'
 MOD = 1000000007
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -36,8 +38,10 @@ class Solution(object):
 
         return result
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

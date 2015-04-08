@@ -6,6 +6,8 @@ possible to obtain a forest with the condition that : Each connected component o
 number of vertices.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def __init__(self, N, M):
         self.f = [0 for _ in xrange(N+1)]  # store the number of nodes of a subtree rooted at i
@@ -35,8 +37,6 @@ class Solution(object):
         return result
 
 
-
-
     def get_sum(self, cur, pi):
         """
         reduce graph to tree
@@ -55,6 +55,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, M = map(int, f.readline().strip().split(' '))

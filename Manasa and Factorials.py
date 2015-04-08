@@ -10,9 +10,12 @@ The first line contains an integer T i.e. the number of Test cases.
 Next T lines will contain an integer n.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def __init__(self):
         import math
+
         MAX_MULT = int(math.log(10**16)/math.log(5))+1
         self.M = [(i, (5**i-1)/4) for i in reversed(xrange(1, MAX_MULT+1))]
 
@@ -75,12 +78,12 @@ class Solution(object):
         if n<p:
             return 0
 
-        return n/p + self.prime_count(p, n/p)
-
+        return n/p+self.prime_count(p, n/p)
 
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

@@ -14,11 +14,14 @@ the actual answer with his algorithm.
 """
 import math
 from decimal import *
+
 __author__ = 'Danyang'
+
 
 class Solution(object):
     def __init__(self):
         getcontext().prec = 28
+
     def solve(self, cipher):
         """
         first K digit of B^N
@@ -38,14 +41,14 @@ class Solution(object):
         """
         Use Decimal() otherwise only works for small numbers
         """
-        p = Decimal(n) * Decimal(b).log10()
-        f = Decimal(p) - Decimal(math.floor(p))
+        p = Decimal(n)*Decimal(b).log10()
+        f = Decimal(p)-Decimal(math.floor(p))
         return Decimal(10)**f
-
 
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

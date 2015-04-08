@@ -7,6 +7,8 @@ Input Format
 The first line contains T the number of test cases. Each of the next T lines contain 2 integers : N, M
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -19,7 +21,7 @@ class Solution(object):
         # r = 2
         # edge_cnt = 0
         # while edge_cnt<M:
-        #     edge_cnt = self.Turan(N, r)
+        # edge_cnt = self.Turan(N, r)
         #     r += 1
         #
         # return r-1
@@ -48,9 +50,9 @@ class Solution(object):
         return 0.5*(n**2-(n%r)*(n/r+1)**2-(r-(n%r))*(n/r)**2)
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

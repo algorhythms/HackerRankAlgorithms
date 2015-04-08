@@ -12,6 +12,8 @@ n
 d1 d2 ... dn
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -39,7 +41,7 @@ class Solution(object):
         while end+1<N and A[end]>=A[end+1]:
             end += 1
 
-        if end==start+1: # swap
+        if end==start+1:  # swap
             # find the item to be swapped
             j = start+1
             while j+1<N and A[j]<A[j+1]:
@@ -58,7 +60,7 @@ class Solution(object):
             if j!=start+1:
                 j += 1
             return "yes\nswap %d %d"%(start+1, j+1)
-        else: # reverse
+        else:  # reverse
             # test tailing
             i = end+1
             while i+1<N:
@@ -72,11 +74,9 @@ class Solution(object):
             return "yes\nreverse %d %d"%(start+1, end+1)
 
 
-
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

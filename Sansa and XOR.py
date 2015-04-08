@@ -7,6 +7,8 @@ values thus obtained. Can you help her in this task?
 Note : [1,2,3] is contiguous subarray of [1,2,3,4] while [1,2,4] is not.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -31,6 +33,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

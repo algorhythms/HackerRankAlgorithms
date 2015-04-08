@@ -7,6 +7,8 @@ X1 ≠ X2, X2 ≠ X3, X3 ≠ X4, X4 ≠ X1.
 """
 MOD = 10**9+7
 __author__ = 'Danyang'
+
+
 class Solution_error(object):
     def solve(self, cipher):
         """
@@ -41,6 +43,7 @@ class Solution_error(object):
         result = (result-max(0, min(R)-max(L)+1))%MOD
         return result
 
+
 class Interval(object):
     def __init__(self, l, r):
         self.l = l
@@ -61,6 +64,7 @@ class Interval(object):
 
     def is_empty(self):
         return self.l>self.r
+
 
 class Solution(object):
     def solve(self, cipher):
@@ -103,9 +107,9 @@ class Solution(object):
         return (w0-w1+w2-w3+w4)%MOD
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

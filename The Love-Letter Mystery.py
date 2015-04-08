@@ -17,6 +17,8 @@ The first line contains an integer T, i.e., the number of test cases.
 The next T lines will contain a string each. The strings do not contain any spaces.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -36,8 +38,10 @@ class Solution(object):
 
         return cnt
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

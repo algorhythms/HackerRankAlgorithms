@@ -5,6 +5,8 @@ Jigar got a sequence of n positive integers as his birthday present! He likes co
 divisible by k. He asks you to write a program to count them for him.
 """
 __author__ = 'Danyang'
+
+
 class Solution_TLE(object):
     def solve(self, cipher):
         """
@@ -22,6 +24,7 @@ class Solution_TLE(object):
                 if (f[i]-f[j])%k==0:
                     result += 1
         return result
+
 
 class Solution(object):
     def solve(self, cipher):
@@ -44,8 +47,10 @@ class Solution(object):
             result += (cnt*(cnt-1))/2  # nC2
         return result
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

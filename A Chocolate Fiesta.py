@@ -14,6 +14,8 @@ colors. It means that if a1 = a2, then choosing a1 and choosing a2 will be consi
 """
 __author__ = 'Danyang'
 MOD = 10**9+7
+
+
 class Solution(object):
     def solve_error(self, cipher):
         """
@@ -22,7 +24,7 @@ class Solution(object):
         """
         N, lst = cipher
         odd_cnt = len(filter(lambda x: x%2==1, lst))
-        even_cnt = N - odd_cnt
+        even_cnt = N-odd_cnt
 
         a = (2**even_cnt)%MOD
 
@@ -62,6 +64,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

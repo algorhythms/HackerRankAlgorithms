@@ -28,6 +28,8 @@ Next T line contains the numbers of number plates the students were having when 
 string A.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve_TLE(self, cipher):
         """
@@ -54,19 +56,19 @@ class Solution(object):
         :param cipher: the cipher
         """
 
-
-    # not used
     def strength(self, a, i, j):
+        # not used
         if a[i]==0:
             return 0
         value = 0
         for k in xrange(i, j+1):
-            value = value*10 + a[k]
+            value = value*10+a[k]
         return value
 
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

@@ -9,6 +9,8 @@ about the citizenship of each astronaut. The only information they have is that 
 belong to the same country.
 """
 __author__ = 'Danyang'
+
+
 class DisjointSet(object):
     def __init__(self, n):
         self.rank = [1 for _ in xrange(n)]
@@ -37,6 +39,7 @@ class DisjointSet(object):
                 card += 1
         return card
 
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -58,15 +61,14 @@ class Solution(object):
         return result/2
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
 
     N, I = map(int, f.readline().strip().split(' '))
-
 
     pairs = []
     for i in xrange(I):

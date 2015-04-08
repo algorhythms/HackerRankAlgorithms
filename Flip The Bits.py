@@ -8,6 +8,8 @@ You are given an array a of size N. The elements of the array are a[0], a[1], ..
 What is the maximum number of '1'-bits (indicated by S) which you can obtain in the final bit-string?
 """
 __author__ = 'Danyang'
+
+
 def bitFlip(cipher):
     """
     main solution function
@@ -37,7 +39,7 @@ def bitFlip(cipher):
             r = ind
             ssum = 0
 
-        if ssum < 0:
+        if ssum<0:
             r = ind
 
         if min_sum>ssum:
@@ -51,9 +53,9 @@ def bitFlip(cipher):
     return sum(cipher)
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

@@ -26,6 +26,8 @@ Constraints
 The prices of two items may be same and each test case has a unique solution.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -52,10 +54,9 @@ class Solution(object):
                     return "%d %d"%(ind+1, hash_map[target][i]+1)
 
 
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

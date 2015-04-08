@@ -47,7 +47,8 @@ class Solution(object):
         total_only_s = 0
         i = 0
         while i<N:
-            if A[i]>K: i += 1
+            if A[i]>K:
+                i += 1
             else:
                 j = i+1
                 while j<N and A[j]<=K: j += 1
@@ -59,9 +60,9 @@ class Solution(object):
         return total-total_only_s
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()

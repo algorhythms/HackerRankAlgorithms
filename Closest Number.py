@@ -20,6 +20,8 @@ Constraints
 -109 ≤ b ≤ 109
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -28,7 +30,7 @@ class Solution(object):
         """
         a, b, x = cipher
         if a>1:
-            result = int((a**b)/float(x)+0.5) * x
+            result = int((a**b)/float(x)+0.5)*x
         else:
             result = 1
         if result!=int(result):
@@ -41,6 +43,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

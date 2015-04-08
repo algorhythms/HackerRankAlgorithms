@@ -7,6 +7,8 @@ Given the nth and (n+1)th terms, the (n+2)th can be computed by the following re
 Tn+2 = (Tn+1)^2 + Tn
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -24,10 +26,9 @@ class Solution(object):
         return a
 
 
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

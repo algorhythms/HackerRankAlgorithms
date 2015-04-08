@@ -6,6 +6,8 @@ Number of times 3 appears is divisible by 5.
 Number of times 5 appears is divisible by 3.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, N):
         """
@@ -20,9 +22,9 @@ class Solution(object):
         return "-1"
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

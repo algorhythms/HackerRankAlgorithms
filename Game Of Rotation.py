@@ -20,6 +20,8 @@ First line contains N denoting the number of elements on the belt.
 Second line contains N space separated integers.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -47,6 +49,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

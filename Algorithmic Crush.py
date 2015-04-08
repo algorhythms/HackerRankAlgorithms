@@ -12,6 +12,8 @@ Output Format
 A single line containing maximum value in the final list.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -43,6 +45,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, M = map(int, f.readline().strip().split(' '))

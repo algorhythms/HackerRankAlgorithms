@@ -19,6 +19,8 @@ SHIFT_CNT = 314159
 # BIT_CNT = 4  # test
 # SHIFT_CNT = 4  # test
 N = BIT_CNT+SHIFT_CNT
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -53,17 +55,18 @@ class Solution(object):
         sig = 1
         for i in xrange(N):  # total N bit
             if i<SHIFT_CNT:
-                cnt_zero = dp[i+1][0] + SHIFT_CNT - i # trailing zeros
-                cnt_one  = dp[i+1][1]  # no trailing ones
+                cnt_zero = dp[i+1][0]+SHIFT_CNT-i  # trailing zeros
+                cnt_one = dp[i+1][1]  # no trailing ones
             else:
-                cnt_zero = dp[len_b][0] - dp[i-SHIFT_CNT][0] + SHIFT_CNT # reach-ability
-                cnt_one  = dp[len_b][1] - dp[i-SHIFT_CNT][1]  # reach-ability
+                cnt_zero = dp[len_b][0]-dp[i-SHIFT_CNT][0]+SHIFT_CNT  # reach-ability
+                cnt_one = dp[len_b][1]-dp[i-SHIFT_CNT][1]  # reach-ability
 
 
 
             # xor
-            cur_bit_sum  = (a_array[i]^0) * cnt_zero  # rather than cur_bit_sum  = a_array[i]^0 * cnt_zero  # operator precedence
-            cur_bit_sum += (a_array[i]^1) * cnt_one
+            cur_bit_sum = (a_array[
+                               i]^0)*cnt_zero  # rather than cur_bit_sum  = a_array[i]^0 * cnt_zero  # operator precedence
+            cur_bit_sum += (a_array[i]^1)*cnt_one
 
             result = (result+sig*cur_bit_sum)%MOD
             # sig *= 2  # TLE
@@ -72,9 +75,9 @@ class Solution(object):
         return result
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     a = f.readline().strip()

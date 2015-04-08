@@ -14,6 +14,8 @@ The first line contains two integers, N and K. The second line contains N space 
 The third line describes array B in a same format.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -31,6 +33,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

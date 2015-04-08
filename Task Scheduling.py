@@ -10,6 +10,8 @@ Input:
 The first line contains the number of tasks T. Each of the next T lines contains two integers Di and Mi.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -32,9 +34,9 @@ class Solution(object):
         return overshot
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

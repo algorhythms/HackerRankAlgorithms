@@ -16,6 +16,8 @@ T lines follows. Each line contains an integer N.
 """
 __author__ = 'Danyang'
 fib = lambda n: reduce(lambda x, n: [x[1], x[0]+x[1]], xrange(n), [0, 1])[0]
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -32,10 +34,9 @@ class Solution(object):
             return "IsNotFibo"
 
 
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

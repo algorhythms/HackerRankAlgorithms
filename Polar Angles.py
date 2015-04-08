@@ -19,6 +19,8 @@ points in the cartesian plane.
 """
 __author__ = 'Danyang'
 import math
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -55,7 +57,7 @@ class Solution(object):
                     return -1
                 else:
                     return 1
-                
+
     def cmp(self, a, b):
         """
         polar coordinate
@@ -82,6 +84,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

@@ -41,6 +41,8 @@ hae and via ecy
 from math import sqrt, floor, ceil
 
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         l = len(cipher)
@@ -69,6 +71,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     cipher = f.readline().strip()

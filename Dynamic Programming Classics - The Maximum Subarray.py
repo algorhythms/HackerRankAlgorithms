@@ -5,6 +5,8 @@ Given an array of N elements, find the maximum possible sum of a (a) contiguous 
 necessarily contiguous) subarray.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -30,9 +32,9 @@ class Solution(object):
         return "%d %d"%(sum_a, sum_b)
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

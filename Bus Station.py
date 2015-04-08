@@ -23,6 +23,8 @@ The first line contains an integer n (1≤n≤105). The second line contains n s
 (1≤ai≤104).
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -55,8 +57,10 @@ class Solution(object):
         result.sort()  # need sort since set does not preserve order
         return " ".join(map(str, result))
 
+
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())

@@ -12,6 +12,8 @@ topic, and 0 indicates that the ith person does not know the topic. Here, 1 <= i
 in the team
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -37,7 +39,7 @@ class Solution(object):
         topic_cnt = bin(topic).count("1")  # otherwise TLE
         # topic_cnt = 0
         # for i in xrange(M):
-        #     if topic&0x1==0x1:
+        # if topic&0x1==0x1:
         #         topic_cnt += 1
         #     topic >>= 1
         return topic_cnt
@@ -45,6 +47,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     N, M = map(lambda x: int(x), f.readline().strip().split(" "))

@@ -17,6 +17,8 @@ The first line of each test case contains an integer N, i.e., the number of elem
 The second line of each test case contains N space separated integers that denote the elements of the list A.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -38,9 +40,9 @@ class Solution(object):
         return a
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

@@ -15,6 +15,8 @@ Each of next t lines contains two space separated integers: r, the square of the
 number of police stations the headquarters is willing to build.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -53,6 +55,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

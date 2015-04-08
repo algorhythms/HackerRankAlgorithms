@@ -8,6 +8,8 @@ subsequence are sorted in ascending order. For example, the length of the LIS fo
 is 6 and the longest increasing subsequence is {15, 27, 38, 55, 65, 85}.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -31,9 +33,9 @@ class Solution(object):
         return maxa
 
 
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

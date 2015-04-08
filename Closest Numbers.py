@@ -9,6 +9,8 @@ Given a list of unsorted numbers, can you find the numbers that have the smalles
 there are multiple pairs, find them all.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -33,12 +35,9 @@ class Solution(object):
         return " ".join(map(str, lst))
 
 
-
-
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

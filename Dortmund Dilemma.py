@@ -21,6 +21,8 @@ separated integers N and K.
 """
 __author__ = 'Danyang'
 MOD = 10**9+9
+
+
 class Solution(object):
     def __init__(self):
         self.factorials = [0 for _ in xrange(26+1)]
@@ -45,7 +47,6 @@ class Solution(object):
                 self.F[i][j] %= MOD
 
         self.G = [[0 for _ in xrange(K+1)] for _ in xrange(N+1)]
-
 
         for j in xrange(1, K+1):
             total = j
@@ -75,13 +76,13 @@ class Solution(object):
                 P += (-1)**(K-j)*self.G[N][j]*(self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
                 P %= MOD
 
-        result = P * (self.factorials[26]/(self.factorials[K]*self.factorials[26-K]))
+        result = P*(self.factorials[26]/(self.factorials[K]*self.factorials[26-K]))
         return result%MOD
-
 
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

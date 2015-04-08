@@ -27,6 +27,8 @@ Sample Input
 9 16
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -67,10 +69,9 @@ class Solution(object):
         return M
 
 
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())

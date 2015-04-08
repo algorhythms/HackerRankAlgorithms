@@ -9,6 +9,8 @@ left/right, then sum is considered to be zero.
 Formally, find an i, such that, A1+A2...Ai-1 = Ai+1+Ai+2...AN.
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -26,11 +28,9 @@ class Solution(object):
         return "NO"
 
 
-
-
-
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()

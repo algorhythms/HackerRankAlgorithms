@@ -6,6 +6,8 @@ numbers, and doing a full sort would be unnecessary. Can you figure out a way to
 median in an array?
 """
 __author__ = 'Danyang'
+
+
 class Solution(object):
     def solve(self, cipher):
         """
@@ -49,6 +51,7 @@ class Solution(object):
 
 if __name__=="__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
