@@ -17,21 +17,24 @@ The blocks can only be placed horizontally. In how many ways can the wall be bui
 __author__ = 'Danyang'
 MOD = 1000000007
 
+
 class Solution(object):
     def __init__(self):
         self.lens = [1, 2, 3, 4]
 
     def solve(self, cipher):
         """
-        f[i][j] represents the number of combinations for size i*j, not necessarily solid
+        f[i][j] represents the number of combinations for size i*j wall, not necessarily solid
         f[i][j] = f[1][j]**i
-        s[i][j] represents the number of combinations for size i*j, solid
 
-        s[h][w]  = f(h,w) - sum(f[h][w-i]*s[h][i])
+        s[i][j] represents the number of combinations for size i*j wall, solid
+
+        s[h][w]  = f(h,w) - sum(f[h][w-i]*s[h][i] for i)
 
         To solve TLE:
-        1. s[h][w] not rely on previous h, simply for s[w]
+        1. s[h][w] not rely on previous h, simplify to s[w]
         2. power takes time, take memory to save time for f[1][j]**i
+
         :param cipher:
         :return:
         """
@@ -97,7 +100,6 @@ class Solution_TLE(object):
                     s[i][j] -= f[i][j-k]*s[i][k]
                     s[i][j] %= MOD
         return s[N][M]
-
 
     def solve_error(self, cipher):
         """
