@@ -3,7 +3,6 @@
 ## Website
 Enjoy the awesomeness: https://www.hackerrank.com/domains/algorithms/
 
-Fight, fight till the end of the world of algorithms.  
 Keep pushing.  
 
 ## Languages 
