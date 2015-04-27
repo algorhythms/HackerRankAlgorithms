@@ -19,3 +19,5 @@ to
     # f = open("0.in", "r")
     f = sys.stdin
 ```
+
+If you like it, star :star: the repo.  
