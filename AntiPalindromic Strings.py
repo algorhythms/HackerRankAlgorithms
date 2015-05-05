@@ -13,11 +13,13 @@ MOD = 10**9+7
 class Solution(object):
     def solve(self, cipher):
         """
-        Any palindrome, it has a sub-palindrome with length 2 or 3 at the center
-
-        There are (M-2) ways to choose sysmbo, since it should not be the same as previous or pred-previous symbols
-
-        total = M*(M-1)*(M-2)*(M-2)*(M-2)...
+        Any palindrome, it has a sub-palindrome with length 2 or 3 pivoting at the center.
+        
+        To construct a palindrome, the 1st letter has M ways, the 2nd has (M-1) ways, subsequently, there
+        are (M-2) ways to choose letters, since it should not be the same as the previous or pre-previous letter;
+        otherwise it will form a palindrom with either length 2 or 3. 
+    
+        Therefore, total = M*(M-1)*(M-2)*(M-2)*(M-2)...
 
         :param cipher: the cipher
         """
@@ -30,7 +32,8 @@ class Solution(object):
             s %= MOD
         return s%MOD
 
-    def _exp(self, a, b):
+    def _exp(self, a, b):  
+        """Alternative to built-in pow()"""
         ret = 1
         b %= MOD
         while b>0:
