@@ -31,10 +31,10 @@ class DualHeap(object):
     def balance(self):
         l1 = len(self.min_h)
         l2 = len(self.max_h)
-        if l1-l2 > 1:
+        if l1 - l2 > 1:
             heapq.heappush(self.max_h, -heapq.heappop(self.min_h))
             self.balance()
-        elif l2-l1 > 1:
+        elif l2 - l1 > 1:
             heapq.heappush(self.min_h, -heapq.heappop(self.max_h))
             self.balance()
         return
@@ -42,15 +42,15 @@ class DualHeap(object):
     def get_median(self):
         l1 = len(self.min_h)
         l2 = len(self.max_h)
-        m = (l1+l2-1)/2
-        if (l1+l2) % 2 == 1:
-            if m == l2-1:
+        m = (l1 + l2 - 1) / 2
+        if (l1 + l2) % 2 == 1:
+            if m == l2 - 1:
                 return -self.max_h[0]
             elif m == l2:
                 return self.min_h[0]
             raise Exception("not balanced")
         else:
-            return (-self.max_h[0]+self.min_h[0])/2.0
+            return (-self.max_h[0] + self.min_h[0]) / 2.0
 
 
 class Solution:
@@ -66,8 +66,9 @@ class Solution:
         return self.dh.get_median()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()

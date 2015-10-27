@@ -30,13 +30,14 @@ class Solution(object):
         :param cipher: the cipher
         """
         r, c = cipher
-        r, c = r-1, c-1
+        r, c = r - 1, c - 1
 
-        return r/2*10+r%2+c*2
+        return r / 2 * 10 + r % 2 + c * 2
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -44,5 +45,5 @@ if __name__=="__main__":
     cipher = map(int, f.readline().strip().split(' '))
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

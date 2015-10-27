@@ -29,12 +29,12 @@ class Solution(object):
         timer = 0
         for task in tasks:
             timer += task[1]
-            overshot = max(overshot, timer-task[0])
+            overshot = max(overshot, timer - task[0])
 
         return overshot
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -46,5 +46,5 @@ if __name__=="__main__":
         cipher.append(map(lambda x: int(x), f.readline().strip().split(' ')))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

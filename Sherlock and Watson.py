@@ -23,12 +23,12 @@ class Solution(object):
 
         result = []
         for i in q:
-            result.append(A[(i-K)%N])
+            result.append(A[(i - K) % N])
 
         return "\n".join(map(str, result))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -44,5 +44,5 @@ if __name__=="__main__":
 
 
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

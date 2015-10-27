@@ -18,7 +18,7 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, A = cipher
-        cnts = [0 for _ in xrange(N+1)]
+        cnts = [0 for _ in xrange(N + 1)]
         for num in A:
             cnts[num] += 1
 
@@ -29,7 +29,7 @@ class Solution(object):
         result = 1
         paths = cnts[0]
         for i in xrange(1, N):
-            if paths<=0:
+            if paths <= 0:
                 return 0
             result *= paths  # Multiplication
             result %= MOD
@@ -39,7 +39,7 @@ class Solution(object):
         return result
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -53,5 +53,5 @@ if __name__=="__main__":
         A = map(int, f.readline().strip().split(' '))
         cipher = N, A
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

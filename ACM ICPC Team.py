@@ -25,17 +25,17 @@ class Solution(object):
         team_cnt = 0
         max_topic = 0
         for i in xrange(N):
-            for j in xrange(i+1, N):
+            for j in xrange(i + 1, N):
                 cnt = self.common_topics(M, ppl[i], ppl[j])
-                if cnt==max_topic:
+                if cnt == max_topic:
                     team_cnt += 1
-                elif cnt>max_topic:
+                elif cnt > max_topic:
                     team_cnt = 1
                     max_topic = cnt
-        return "%d\n%d"%(max_topic, team_cnt)
+        return "%d\n%d" % (max_topic, team_cnt)
 
     def common_topics(self, M, a, b):
-        topic = a|b
+        topic = a | b
         topic_cnt = bin(topic).count("1")  # otherwise TLE
         # topic_cnt = 0
         # for i in xrange(M):
@@ -45,7 +45,7 @@ class Solution(object):
         return topic_cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -56,5 +56,5 @@ if __name__=="__main__":
         ppl.append(int(f.readline().strip(), 2))
 
     cipher = [N, M, ppl]
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

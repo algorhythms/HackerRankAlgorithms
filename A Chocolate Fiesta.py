@@ -13,7 +13,7 @@ student gives the right answer. While it is given that if two numbers are same i
 colors. It means that if a1 = a2, then choosing a1 and choosing a2 will be considered as different sets.
 """
 __author__ = 'Danyang'
-MOD = 10**9+7
+MOD = 10 ** 9 + 7
 
 
 class Solution(object):
@@ -23,21 +23,21 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, lst = cipher
-        odd_cnt = len(filter(lambda x: x%2==1, lst))
-        even_cnt = N-odd_cnt
+        odd_cnt = len(filter(lambda x: x % 2 == 1, lst))
+        even_cnt = N - odd_cnt
 
-        a = (2**even_cnt)%MOD
+        a = (2 ** even_cnt) % MOD
 
         result = 0
-        result += a-1
+        result += a - 1
 
         i = 2
-        comb = (odd_cnt)*(odd_cnt-1)/(1*2)
-        while i<=odd_cnt:
-            result += comb*a
+        comb = (odd_cnt) * (odd_cnt - 1) / (1 * 2)
+        while i <= odd_cnt:
+            result += comb * a
             result %= MOD
             i += 2
-            comb *= (odd_cnt-i+1)*(odd_cnt-i)/((i-1)*i)
+            comb *= (odd_cnt - i + 1) * (odd_cnt - i) / ((i - 1) * i)
             comb %= MOD
 
         return result
@@ -48,21 +48,21 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, lst = cipher
-        odd_cnt = len(filter(lambda x: x%2==1, lst))
-        even_cnt = N-odd_cnt
+        odd_cnt = len(filter(lambda x: x % 2 == 1, lst))
+        even_cnt = N - odd_cnt
 
-        a = (2**even_cnt)%MOD
-        b = (2**(odd_cnt-1))%MOD
+        a = (2 ** even_cnt) % MOD
+        b = (2 ** (odd_cnt - 1)) % MOD
 
-        if odd_cnt!=0:
-            result = a-1+(b-1)*a
+        if odd_cnt != 0:
+            result = a - 1 + (b - 1) * a
         else:
-            result = a-1
+            result = a - 1
 
-        return result%MOD
+        return result % MOD
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -71,5 +71,5 @@ if __name__=="__main__":
     lst = map(int, f.readline().strip().split(' '))
     cipher = N, lst
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

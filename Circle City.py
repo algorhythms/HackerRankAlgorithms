@@ -29,31 +29,31 @@ class Solution(object):
         r2, k = cipher
 
         required = 0
-        r = r2**0.5
+        r = r2 ** 0.5
 
-        for x in xrange(0, int(r)+1):
+        for x in xrange(0, int(r) + 1):
             # binary search
             low = 0
-            high = int(r)+1
-            while low<=high:
-                mid = (low+high)/2
-                if x*x+mid*mid==r2:
-                    if mid==0 or x==0:
+            high = int(r) + 1
+            while low <= high:
+                mid = (low + high) / 2
+                if x * x + mid * mid == r2:
+                    if mid == 0 or x == 0:
                         required += 2
                     else:
                         required += 4
-                    if required>k: return "impossible"
+                    if required > k: return "impossible"
                     break
-                elif x*x+mid*mid<r2:
-                    low = mid+1
+                elif x * x + mid * mid < r2:
+                    low = mid + 1
                 else:
-                    high = mid-1
+                    high = mid - 1
 
-        if required>k: return "impossible"
+        if required > k: return "impossible"
         return "possible"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -65,5 +65,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

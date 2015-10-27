@@ -45,16 +45,16 @@ class Solution(object):
             else:
                 hash_map[val] = [ind]
         for ind, val in enumerate(C):
-            target = M-val
+            target = M - val
             if target in hash_map:
                 i = 0
-                while i<len(hash_map[target]) and hash_map[target][i]<=ind:
+                while i < len(hash_map[target]) and hash_map[target][i] <= ind:
                     i += 1
-                if i!=len(hash_map[target]):
-                    return "%d %d"%(ind+1, hash_map[target][i]+1)
+                if i != len(hash_map[target]):
+                    return "%d %d" % (ind + 1, hash_map[target][i] + 1)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -68,5 +68,5 @@ if __name__=="__main__":
         C = map(int, f.readline().strip().split(' '))
         cipher = M, N, C
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

@@ -15,6 +15,7 @@ Goal is to reach Nth building, and during the course bot should never have negat
 minimum units of energy with which bot should start to successfully complete the game?
 """
 import math
+
 __author__ = 'Danyang'
 
 
@@ -35,9 +36,9 @@ class Solution(object):
         m = max(H)
         up = math.log(m, 2)
         for i, e in enumerate(H):
-            if i>up and i>1000:
+            if i > up and i > 1000:
                 break
-            s += float(e)/2**(i+1)
+            s += float(e) / 2 ** (i + 1)
         return int(math.ceil(s))
 
     def solve(self, cipher):
@@ -49,13 +50,14 @@ class Solution(object):
         """
         N, H = cipher
         mini = 0
-        for i in xrange(N-1, -1, -1):
-            mini = (mini+H[i]+1)/2  # ceil, but better than float version of math.ceil
+        for i in xrange(N - 1, -1, -1):
+            mini = (mini + H[i] + 1) / 2  # ceil, but better than float version of math.ceil
         return mini
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -63,5 +65,5 @@ if __name__=="__main__":
     H = map(int, f.readline().strip().split(' '))
     cipher = N, H
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

@@ -34,19 +34,20 @@ class Solution(object):
         :param cipher: the cipher
         """
         n, k, A = cipher
-        f = [[0 for _ in xrange(k+1)] for _ in xrange(n+1)]  # f[0, :] is dummies
-        for i in xrange(n+1):
-            for c in xrange(k+1):
-                f[i][c] = f[i-1][c]
-                temp = c-A[i-1]
-                if temp>=0:
-                    f[i][c] = max(f[i-1][c], f[i-1][c-A[i-1]]+A[i-1], f[i][c-A[i-1]]+A[i-1])
+        f = [[0 for _ in xrange(k + 1)] for _ in xrange(n + 1)]  # f[0, :] is dummies
+        for i in xrange(n + 1):
+            for c in xrange(k + 1):
+                f[i][c] = f[i - 1][c]
+                temp = c - A[i - 1]
+                if temp >= 0:
+                    f[i][c] = max(f[i - 1][c], f[i - 1][c - A[i - 1]] + A[i - 1], f[i][c - A[i - 1]] + A[i - 1])
 
         return f[n][k]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -59,5 +60,5 @@ if __name__=="__main__":
         cipher = n, k, A
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

@@ -20,22 +20,22 @@ class Solution(object):
         N, A = cipher
         A.sort()
 
-        diff = 1<<31
+        diff = 1 << 31
         lst = []
-        for i in xrange(N-1):
-            b = A[i+1]
+        for i in xrange(N - 1):
+            b = A[i + 1]
             a = A[i]
-            if abs(a-b)<diff:
-                diff = abs(a-b)
+            if abs(a - b) < diff:
+                diff = abs(a - b)
                 lst = [a, b]
-            elif abs(a-b)==diff:
+            elif abs(a - b) == diff:
                 lst.append(a)
                 lst.append(b)
 
         return " ".join(map(str, lst))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -46,5 +46,5 @@ if __name__=="__main__":
     cipher = N, A
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

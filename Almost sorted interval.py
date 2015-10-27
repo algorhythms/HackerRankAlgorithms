@@ -27,7 +27,7 @@ class Solution(object):
         :return:
         """
         # TODO
-        
+
 
     def solve_time_out(self, cipher):
         """
@@ -42,18 +42,18 @@ class Solution(object):
         A = cipher
         L = [-1 for _ in A]
         S = [-1 for _ in A]
-        for i in xrange(len(A)-2, -1, -1):
-            idx = i+1
-            while idx!=-1:
-                if A[idx]<A[i]:
+        for i in xrange(len(A) - 2, -1, -1):
+            idx = i + 1
+            while idx != -1:
+                if A[idx] < A[i]:
                     idx = L[idx]
                 else:
                     break
             L[i] = idx
 
-            idx = i+1
-            while idx!=-1:
-                if A[idx]>A[i]:
+            idx = i + 1
+            while idx != -1:
+                if A[idx] > A[i]:
                     idx = S[idx]
                 else:
                     break
@@ -64,7 +64,7 @@ class Solution(object):
             cnt += 1
             l = L[i]
             s = S[i]
-            while l!=-1 and (s==-1 or s>l):
+            while l != -1 and (s == -1 or s > l):
                 cnt += 1
                 l = L[l]
 
@@ -78,10 +78,10 @@ class Solution(object):
         A = cipher
         N = len(A)
         start = 0
-        end = 1 # [0, 1)
+        end = 1  # [0, 1)
         cnt = 0
-        while end<N:
-            if A[end]>A[end-1]:
+        while end < N:
+            if A[end] > A[end - 1]:
                 end += 1
             else:
                 cnt += self.count(start, end)
@@ -92,11 +92,13 @@ class Solution(object):
         return cnt
 
     def count(self, start, end):
-        l = end-start
-        return (l+1)*l/2
+        l = end - start
+        return (l + 1) * l / 2
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     N = int(f.readline().strip())
@@ -104,5 +106,5 @@ if __name__=="__main__":
     cipher = map(int, f.readline().strip().split(' '))
 
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

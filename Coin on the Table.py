@@ -13,6 +13,7 @@ can select a cell with some letter other than '*' and change the letter to 'U', 
 as few operations as possible in order to achieve your goal. Your task is to find the minimum number of operations.
 """
 import sys
+
 __author__ = 'Danyang'
 
 
@@ -34,34 +35,34 @@ class Solution(object):
         j_dest = -1
         for i in xrange(M):
             for j in xrange(N):
-                if mat[i][j]=="*":
+                if mat[i][j] == "*":
                     i_dest = i
                     j_dest = j
                     break
 
-        f = [[[sys.maxint for _ in xrange(N)] for _ in xrange(M)] for _ in xrange(K+1)]
-        for k in xrange(K+1):  # you need zero ops to be at the origin BEFORE time k
+        f = [[[sys.maxint for _ in xrange(N)] for _ in xrange(M)] for _ in xrange(K + 1)]
+        for k in xrange(K + 1):  # you need zero ops to be at the origin BEFORE time k
             f[k][0][0] = 0
 
-        for k in xrange(1, K+1):  # when k=0, at origin
+        for k in xrange(1, K + 1):  # when k=0, at origin
             for i in xrange(0, M):
                 for j in xrange(0, N):
                     for dir in self.dirs:
-                        i_pre = i+dir[0]
-                        j_pre = j+dir[1]
-                        if 0<=i_pre<M and 0<=j_pre<N:
-                            if mat[i_pre][j_pre]==dir[2]:
-                                f[k][i][j] = min(f[k][i][j], f[k-1][i_pre][j_pre])
+                        i_pre = i + dir[0]
+                        j_pre = j + dir[1]
+                        if 0 <= i_pre < M and 0 <= j_pre < N:
+                            if mat[i_pre][j_pre] == dir[2]:
+                                f[k][i][j] = min(f[k][i][j], f[k - 1][i_pre][j_pre])
                             else:
-                                f[k][i][j] = min(f[k][i][j], f[k-1][i_pre][j_pre]+1)
+                                f[k][i][j] = min(f[k][i][j], f[k - 1][i_pre][j_pre] + 1)
 
         mini = sys.maxint
-        for k in xrange(K+1):
+        for k in xrange(K + 1):
             mini = min(mini, f[k][i_dest][j_dest])
-        return mini if mini!=sys.maxint else -1
+        return mini if mini != sys.maxint else -1
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -72,5 +73,5 @@ if __name__=="__main__":
 
     cipher = M, N, K, mat
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

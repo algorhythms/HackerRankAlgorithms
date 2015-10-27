@@ -20,11 +20,12 @@ class Solution(object):
         main solution function
         :param cipher: the cipher
         """
-        return sum(cipher)/2.0
+        return sum(cipher) / 2.0
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -36,5 +37,5 @@ if __name__=="__main__":
         cipher.append(int(f.readline().strip()))
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

@@ -28,10 +28,10 @@ class Solution(object):
         """
         length, lst = cipher
 
-        return reduce(lambda x, y: x|y, lst)*2**(length-1)%(10**9+7)
+        return reduce(lambda x, y: x | y, lst) * 2 ** (length - 1) % (10 ** 9 + 7)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -44,5 +44,5 @@ if __name__=="__main__":
         lst = map(lambda x: int(x), f.readline().strip().split(" "))
         cipher = [length, lst]
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

@@ -22,23 +22,23 @@ class Solution(object):
 
     # memoize
     def get_combinations(self, t, lst, k):
-        if t==0:
+        if t == 0:
             return 1
 
-        if t<0 or k>=len(lst):
+        if t < 0 or k >= len(lst):
             return 0
 
         if (t, k) not in self.combs:
             cnt = 0
-            while t>=0:
-                cnt += self.get_combinations(t, lst, k+1)
+            while t >= 0:
+                cnt += self.get_combinations(t, lst, k + 1)
                 t -= lst[k]
             self.combs[(t, k)] = cnt
 
         return self.combs[(t, k)]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -48,5 +48,5 @@ if __name__=="__main__":
     N = int(f.readline().strip())
     cipher = C, N
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

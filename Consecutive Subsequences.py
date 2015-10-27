@@ -14,14 +14,14 @@ class Solution_TLE(object):
         :param cipher: the cipher
         """
         n, k, a = cipher
-        f = [0 for _ in xrange(n+1)]  # sum dp
-        for i in xrange(1, n+1):
-            f[i] = f[i-1]+a[i-1]
+        f = [0 for _ in xrange(n + 1)]  # sum dp
+        for i in xrange(1, n + 1):
+            f[i] = f[i - 1] + a[i - 1]
 
         result = 0
-        for i in xrange(1, n+1):
+        for i in xrange(1, n + 1):
             for j in xrange(0, i):
-                if (f[i]-f[j])%k==0:
+                if (f[i] - f[j]) % k == 0:
                     result += 1
         return result
 
@@ -44,11 +44,11 @@ class Solution(object):
 
         result = 0
         for cnt in cnts:
-            result += (cnt*(cnt-1))/2  # nC2
+            result += (cnt * (cnt - 1)) / 2  # nC2
         return result
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -62,5 +62,5 @@ if __name__=="__main__":
         a = map(int, f.readline().strip().split(' '))
         cipher = n, k, a
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

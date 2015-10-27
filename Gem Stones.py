@@ -18,10 +18,10 @@ class Solution(object):
         main solution function
         :param cipher: the cipher
         """
-        return len(reduce(lambda x, y: x&y, [set(list(elt)) for elt in cipher]))
+        return len(reduce(lambda x, y: x & y, [set(list(elt)) for elt in cipher]))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -33,5 +33,5 @@ if __name__=="__main__":
         cipher.append(f.readline().strip())
 
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

@@ -33,21 +33,21 @@ class Solution(object):
         A = cipher
         N = len(A)
         _sum = sum(A)
-        _max = -1<<65  # 64-bit 
+        _max = -1 << 65  # 64-bit
 
         s = 0
         for ind, val in enumerate(A):
-            s += (ind+1)*val
+            s += (ind + 1) * val
 
         _max = max(_max, s)
         for i in xrange(N):
-            s = s+_sum-N*A[N-1-i]
+            s = s + _sum - N * A[N - 1 - i]
             _max = max(_max, s)
 
         return _max
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -56,5 +56,5 @@ if __name__=="__main__":
     cipher = map(int, f.readline().strip().split(' '))
 
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

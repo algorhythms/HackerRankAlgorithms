@@ -29,18 +29,18 @@ class Solution(object):
         B = []
         B.append(A[0])
         for i in xrange(1, len(A)):
-            B.append(A[i]*A[i-1]/self.gcd(A[i], A[i-1]))
+            B.append(A[i] * A[i - 1] / self.gcd(A[i], A[i - 1]))
         B.append(A[-1])
 
         return " ".join(map(str, B))
 
     def gcd(self, a, b):
         while b:
-            a, b = b, a%b
+            a, b = b, a % b
         return a
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -53,5 +53,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

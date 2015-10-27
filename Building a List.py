@@ -32,10 +32,10 @@ class Solution(object):
         result.append(cur)
         if seq:
             for i in xrange(len(seq)):
-                self.dfs(seq[i+1:], cur+seq[i], result)
+                self.dfs(seq[i + 1:], cur + seq[i], result)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -48,5 +48,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

@@ -26,7 +26,7 @@ class Solution(object):
         visited = [[False for _ in xrange(n)] for _ in xrange(m)]
         for i in xrange(m):
             for j in xrange(n):
-                if not visited[i][j] and mat[i][j]==1:
+                if not visited[i][j] and mat[i][j] == 1:
                     self.cur_area = 0
                     self.dfs(visited, mat, i, j, m, n)
 
@@ -38,14 +38,15 @@ class Solution(object):
         self.max = max(self.max, self.cur_area)
 
         for dir in self.dirs:
-            i1 = i+dir[0]
-            j1 = j+dir[1]
-            if 0<=i1<m and 0<=j1<n and not visited[i1][j1] and mat[i1][j1]==1:
+            i1 = i + dir[0]
+            j1 = j + dir[1]
+            if 0 <= i1 < m and 0 <= j1 < n and not visited[i1][j1] and mat[i1][j1] == 1:
                 self.dfs(visited, mat, i1, j1, m, n)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -58,5 +59,5 @@ if __name__=="__main__":
 
     cipher = m, n, mat
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

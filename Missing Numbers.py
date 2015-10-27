@@ -25,7 +25,7 @@ class Solution(object):
                 hm[a] += 1
 
         for b in B:
-            if b not in hm or hm[b]<=0:
+            if b not in hm or hm[b] <= 0:
                 result.add(b)
             else:
                 hm[b] -= 1
@@ -33,7 +33,7 @@ class Solution(object):
         return " ".join(map(str, result))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -46,5 +46,5 @@ if __name__=="__main__":
 
     cipher = m, A, n, B
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

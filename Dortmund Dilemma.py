@@ -20,43 +20,42 @@ The first line of the input will contain T ( the number of testcases). Each of t
 separated integers N and K.
 """
 __author__ = 'Danyang'
-MOD = 10**9+9
+MOD = 10 ** 9 + 9
 
 
 class Solution(object):
     def __init__(self):
-        self.factorials = [0 for _ in xrange(26+1)]
+        self.factorials = [0 for _ in xrange(26 + 1)]
         self.factorials[0] = 1
-        for i in xrange(1, 26+1):
-            self.factorials[i] = self.factorials[i-1]*i
+        for i in xrange(1, 26 + 1):
+            self.factorials[i] = self.factorials[i - 1] * i
 
 
         # cached, rather than calculated eveytime
-        N = 10**5
+        N = 10 ** 5
         K = 26
 
-        self.F = [[0 for _ in xrange(K+1)] for _ in xrange(N+1)]
+        self.F = [[0 for _ in xrange(K + 1)] for _ in xrange(N + 1)]
         # starting from 1
-        for j in xrange(1, K+1):
+        for j in xrange(1, K + 1):
             self.F[1][j] = j
-            for i in xrange(2, N+1):
-                if i&1==0:
-                    self.F[i][j] = (self.F[i-1][j]*j-self.F[i/2][j])
+            for i in xrange(2, N + 1):
+                if i & 1 == 0:
+                    self.F[i][j] = (self.F[i - 1][j] * j - self.F[i / 2][j])
                 else:
-                    self.F[i][j] = (self.F[i-1][j]*j)
+                    self.F[i][j] = (self.F[i - 1][j] * j)
                 self.F[i][j] %= MOD
 
-        self.G = [[0 for _ in xrange(K+1)] for _ in xrange(N+1)]
+        self.G = [[0 for _ in xrange(K + 1)] for _ in xrange(N + 1)]
 
-        for j in xrange(1, K+1):
+        for j in xrange(1, K + 1):
             total = j
-            for i in xrange(1, N+1):
-                self.G[i][j] = total-self.F[i][j]  # rather than using j**i
+            for i in xrange(1, N + 1):
+                self.G[i][j] = total - self.F[i][j]  # rather than using j**i
                 self.G[i][j] %= MOD
 
                 total *= j
                 total %= MOD  # otherwise time out
-
 
     def solve(self, cipher):
         """
@@ -66,21 +65,22 @@ class Solution(object):
         N, K = cipher
 
         P = 0
-        if K==1:
+        if K == 1:
             P += self.G[N][K]
         else:
             for j in xrange(K, 0, -1):
                 # P = self.G[N][K]
                 # P -= G[j] * (self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
                 # PIE: Principle of Inclusion-Exclusion
-                P += (-1)**(K-j)*self.G[N][j]*(self.factorials[K]/(self.factorials[j]*self.factorials[K-j]))
+                P += (-1) ** (K - j) * self.G[N][j] * (
+                    self.factorials[K] / (self.factorials[j] * self.factorials[K - j]))
                 P %= MOD
 
-        result = P*(self.factorials[26]/(self.factorials[K]*self.factorials[26-K]))
-        return result%MOD
+        result = P * (self.factorials[26] / (self.factorials[K] * self.factorials[26 - K]))
+        return result % MOD
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -92,5 +92,5 @@ if __name__=="__main__":
         cipher = map(lambda x: int(x), f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

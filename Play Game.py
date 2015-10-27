@@ -32,32 +32,31 @@ class Solution(object):
         N, v = cipher
         v.reverse()  # start from the bottom
         # sum dp
-        s = [0 for _ in xrange(N+1)]
-        for i in xrange(1, N+1):
-            s[i] = s[i-1]+v[i-1]
+        s = [0 for _ in xrange(N + 1)]
+        for i in xrange(1, N + 1):
+            s[i] = s[i - 1] + v[i - 1]
 
-        f = [[0, 0] for _ in xrange(N+1)]
-        for i in xrange(1, N+1):
+        f = [[0, 0] for _ in xrange(N + 1)]
+        for i in xrange(1, N + 1):
             # f[i][0]
             local_max = 0
             for k in xrange(1, 4):
-                if i-k>=0:
-                    local_max = max(local_max, s[i]-s[i-k]+s[i-k]-f[i-k][1])
+                if i - k >= 0:
+                    local_max = max(local_max, s[i] - s[i - k] + s[i - k] - f[i - k][1])
             f[i][0] = local_max
-
 
             # if i==1: continue  # starting from the bottom
             # f[i][1]
             local_max = 0
             for k in xrange(1, 4):
-                if i-k>=0:
-                    local_max = max(local_max, s[i]-s[i-k]+s[i-k]-f[i-k][0])
+                if i - k >= 0:
+                    local_max = max(local_max, s[i] - s[i - k] + s[i - k] - f[i - k][0])
             f[i][1] = local_max
 
         return f[-1][0]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -70,5 +69,5 @@ if __name__=="__main__":
         lst = map(lambda x: int(x), f.readline().strip().split(" "))
         cipher = [N, lst]
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

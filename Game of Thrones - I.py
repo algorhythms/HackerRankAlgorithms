@@ -19,20 +19,21 @@ class Solution(object):
 
         cnt = 0
         for v in d.values():
-            if v&1==1:
+            if v & 1 == 1:
                 cnt += 1
-            if cnt>1:
+            if cnt > 1:
                 return "NO"
         return "YES"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
     cipher = f.readline().strip()
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

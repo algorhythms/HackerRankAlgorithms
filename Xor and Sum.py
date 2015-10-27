@@ -13,12 +13,12 @@ The first line contains number a (1<=a<2^{10^5}) in binary representation. The s
 b (1<=b<2^{10^5}) in the same format. All the numbers do not contain leading zeros.
 """
 __author__ = 'Danyang'
-MOD = 10**9+7
-BIT_CNT = 10**5
+MOD = 10 ** 9 + 7
+BIT_CNT = 10 ** 5
 SHIFT_CNT = 314159
 # BIT_CNT = 4  # test
 # SHIFT_CNT = 4  # test
-N = BIT_CNT+SHIFT_CNT
+N = BIT_CNT + SHIFT_CNT
 
 
 class Solution(object):
@@ -41,41 +41,41 @@ class Solution(object):
 
         # str to reversed bit array
         for ind, val in enumerate(a):
-            a_array[len_a-1-ind] = int(val)
+            a_array[len_a - 1 - ind] = int(val)
         for ind, val in enumerate(b):
-            b_array[len_b-1-ind] = int(val)
+            b_array[len_b - 1 - ind] = int(val)
 
         # dp for sum of bits
-        dp = [[0, 0] for _ in xrange(N+1)]
-        for i in xrange(1, N+1):
-            dp[i][0] = dp[i-1][0]+1 if b_array[i-1]==0 else dp[i-1][0]
-            dp[i][1] = dp[i-1][1]+1 if b_array[i-1]==1 else dp[i-1][1]
+        dp = [[0, 0] for _ in xrange(N + 1)]
+        for i in xrange(1, N + 1):
+            dp[i][0] = dp[i - 1][0] + 1 if b_array[i - 1] == 0 else dp[i - 1][0]
+            dp[i][1] = dp[i - 1][1] + 1 if b_array[i - 1] == 1 else dp[i - 1][1]
 
         result = 0
         sig = 1
         for i in xrange(N):  # total N bit
-            if i<SHIFT_CNT:
-                cnt_zero = dp[i+1][0]+SHIFT_CNT-i  # trailing zeros
-                cnt_one = dp[i+1][1]  # no trailing ones
+            if i < SHIFT_CNT:
+                cnt_zero = dp[i + 1][0] + SHIFT_CNT - i  # trailing zeros
+                cnt_one = dp[i + 1][1]  # no trailing ones
             else:
-                cnt_zero = dp[len_b][0]-dp[i-SHIFT_CNT][0]+SHIFT_CNT  # reach-ability
-                cnt_one = dp[len_b][1]-dp[i-SHIFT_CNT][1]  # reach-ability
+                cnt_zero = dp[len_b][0] - dp[i - SHIFT_CNT][0] + SHIFT_CNT  # reach-ability
+                cnt_one = dp[len_b][1] - dp[i - SHIFT_CNT][1]  # reach-ability
 
 
 
             # xor
             cur_bit_sum = (a_array[
-                               i]^0)*cnt_zero  # rather than cur_bit_sum  = a_array[i]^0 * cnt_zero  # operator precedence
-            cur_bit_sum += (a_array[i]^1)*cnt_one
+                               i] ^ 0) * cnt_zero  # rather than cur_bit_sum  = a_array[i]^0 * cnt_zero  # operator precedence
+            cur_bit_sum += (a_array[i] ^ 1) * cnt_one
 
-            result = (result+sig*cur_bit_sum)%MOD
+            result = (result + sig * cur_bit_sum) % MOD
             # sig *= 2  # TLE
-            sig = (sig*2)%MOD
+            sig = (sig * 2) % MOD
 
         return result
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -84,5 +84,5 @@ if __name__=="__main__":
     b = f.readline().strip()
     cipher = (a, b)
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

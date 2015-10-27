@@ -54,5 +54,5 @@ if __name__ == "__main__":
 
     cipher = n, K, A
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

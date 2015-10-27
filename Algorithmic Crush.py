@@ -29,12 +29,12 @@ class Solution(object):
         qry = []
         for query in queries:
             qry.append((query[0], query[2]))
-            qry.append((query[1]+1, -query[2]))
+            qry.append((query[1] + 1, -query[2]))
 
         qry.sort(key=lambda x: (x[0], x[1]))
         # qry.sort(key=lambda x: x[1]) # secondary attribute
 
-        maxa = -1<<32
+        maxa = -1 << 32
         cur = 0
         for q in qry:
             cur += q[1]
@@ -43,7 +43,7 @@ class Solution(object):
         return maxa
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -57,5 +57,5 @@ if __name__=="__main__":
 
     cipher = N, M, queries
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

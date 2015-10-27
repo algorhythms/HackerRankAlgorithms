@@ -26,12 +26,12 @@ class Solution(object):
         N, A = cipher
         ret = 0
         for i, val in enumerate(A):
-            if (i+1)*(N-i)%2==1:
+            if (i + 1) * (N - i) % 2 == 1:
                 ret ^= val
         return ret
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -45,5 +45,5 @@ if __name__=="__main__":
 
         cipher = N, A
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

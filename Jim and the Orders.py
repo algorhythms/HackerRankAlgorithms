@@ -36,12 +36,13 @@ class Solution(object):
         """
         A = cipher
         n = len(A)
-        idx = sorted(range(n), key=lambda k: A[k][0]+A[k][1])
-        return " ".join(map(lambda x: str(x+1), idx))
+        idx = sorted(range(n), key=lambda k: A[k][0] + A[k][1])
+        return " ".join(map(lambda x: str(x + 1), idx))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -54,5 +55,5 @@ if __name__=="__main__":
         cipher.append(tuple(t))
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

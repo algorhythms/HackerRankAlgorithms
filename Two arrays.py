@@ -26,12 +26,12 @@ class Solution(object):
         A.sort()
         B.sort(reverse=True)  # dynamic typed, then cannot detect list()
         for i in xrange(N):
-            if not A[i]+B[i]>=K:
+            if not A[i] + B[i] >= K:
                 return "NO"
         return "YES"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -45,5 +45,5 @@ if __name__=="__main__":
         B = map(int, f.readline().strip().split(' '))
         cipher = N, K, A, B
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

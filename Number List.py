@@ -43,24 +43,24 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, K, A = cipher
-        total = N*(N+1)/2
+        total = N * (N + 1) / 2
         total_only_s = 0
         i = 0
-        while i<N:
-            if A[i]>K:
+        while i < N:
+            if A[i] > K:
                 i += 1
             else:
-                j = i+1
-                while j<N and A[j]<=K: j += 1
-                l = j-i
-                total_only_s += l*(l+1)/2
+                j = i + 1
+                while j < N and A[j] <= K: j += 1
+                l = j - i
+                total_only_s += l * (l + 1) / 2
 
                 i = j
 
-        return total-total_only_s
+        return total - total_only_s
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("0.in", "r")
@@ -74,5 +74,5 @@ if __name__=="__main__":
         A = map(int, f.readline().strip().split(' '))
         cipher = N, K, A
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

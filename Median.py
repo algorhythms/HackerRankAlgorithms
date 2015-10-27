@@ -29,7 +29,7 @@ class Solution_TLE(object):
         """
         op = cipher[0]
         num = int(cipher[1])
-        if op=="r":
+        if op == "r":
             try:
                 self.heap.remove(num)
             except ValueError:
@@ -43,10 +43,10 @@ class Solution_TLE(object):
             return "Wrong!"
         pq = list(self.heap)
         pq = [heapq.heappop(pq) for _ in xrange(length)]
-        if length&1==0:
-            return 0.5*(pq[length/2-1]+pq[length/2])
+        if length & 1 == 0:
+            return 0.5 * (pq[length / 2 - 1] + pq[length / 2])
         else:
-            return pq[length/2]
+            return pq[length / 2]
 
 
 class Solution_TLE2(object):
@@ -59,16 +59,16 @@ class Solution_TLE2(object):
         Median_Heap
 
         Still TLE
-        Notice that 6, 7, 8 test cases time out 
+        Notice that 6, 7, 8 test cases time out
 
         :param cipher: the cipher
         """
         op = cipher[0]
         num = int(cipher[1])
-        if op=="r":
+        if op == "r":
             try:
                 # if self.max_heap and -num>self.max_heap[0]:
-                if self.min_heap and num>=self.min_heap[0]:
+                if self.min_heap and num >= self.min_heap[0]:
                     self.min_heap.remove(num)
                     heapq.heapify(self.min_heap)
                 else:
@@ -81,7 +81,7 @@ class Solution_TLE2(object):
                 return "Wrong!"
         else:
             # if self.max_heap and -num>self.max_heap[0]:
-            if self.min_heap and num>=self.min_heap[0]:
+            if self.min_heap and num >= self.min_heap[0]:
                 heapq.heappush(self.min_heap, num)
             else:
                 heapq.heappush(self.max_heap, -num)
@@ -89,24 +89,24 @@ class Solution_TLE2(object):
 
         # return "%g"%self.__get_median()  # %g rather than %s to avoid trailing zero  # general format # fail
         output = str(self.__get_median())
-        if output[-2:]==".0":
+        if output[-2:] == ".0":
             output = output[:-2]
         return output
 
     def __balance(self):
-        if len(self.min_heap)>len(self.max_heap)+1:
+        if len(self.min_heap) > len(self.max_heap) + 1:
             item = heapq.heappop(self.min_heap)
             heapq.heappush(self.max_heap, -item)
             return
-        if len(self.max_heap)>len(self.min_heap)+1:
+        if len(self.max_heap) > len(self.min_heap) + 1:
             item = heapq.heappop(self.max_heap)
             heapq.heappush(self.min_heap, -item)
             return
 
     def __get_median(self):
-        if len(self.min_heap)==len(self.max_heap):
-            return 0.5*(self.min_heap[0]+(-1)*self.max_heap[0])
-        elif len(self.min_heap)>len(self.max_heap):
+        if len(self.min_heap) == len(self.max_heap):
+            return 0.5 * (self.min_heap[0] + (-1) * self.max_heap[0])
+        elif len(self.min_heap) > len(self.max_heap):
             return self.min_heap[0]
         else:
             return -self.max_heap[0]
@@ -127,8 +127,8 @@ class Solution(object):
         val = int(cipher[1])
 
         pos = bisect_left(self.A, val)
-        if op=="r":
-            if pos>=len(self.A) or self.A[pos]!=val:
+        if op == "r":
+            if pos >= len(self.A) or self.A[pos] != val:
                 return "Wrong!"
             else:
                 del (self.A[pos])
@@ -136,18 +136,18 @@ class Solution(object):
             self.A.insert(pos, val)
 
         l = len(self.A)
-        if l==0:
+        if l == 0:
             return "Wrong!"
-        elif l&1==1:
-            return self.A[l/2]
+        elif l & 1 == 1:
+            return self.A[l / 2]
         else:
-            output = str(0.5*(self.A[l/2-1]+self.A[l/2]))
-            if output[-2:]==".0":
+            output = str(0.5 * (self.A[l / 2 - 1] + self.A[l / 2]))
+            if output[-2:] == ".0":
                 output = output[:-2]
             return output
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("0.in", "r")
@@ -159,5 +159,5 @@ if __name__=="__main__":
         cipher = f.readline().strip().split(' ')
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

@@ -22,14 +22,14 @@ class Solution(object):
         cnt = 0
         for ind, val in enumerate(cipher):
             if val in hm:
-                cnt += 2*len(hm[val])
+                cnt += 2 * len(hm[val])
                 hm[val].append(ind)
             else:
                 hm[val] = [ind]
         return cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -42,5 +42,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

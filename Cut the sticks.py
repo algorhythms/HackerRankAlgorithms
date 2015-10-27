@@ -21,13 +21,13 @@ class Solution(object):
         result = []
         while A:
             result.append(len(A))
-            A = map(lambda x: x-A[0], A)
-            A = filter(lambda x: x>0, A)
+            A = map(lambda x: x - A[0], A)
+            A = filter(lambda x: x > 0, A)
 
         return "\n".join(map(str, result))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -38,5 +38,5 @@ if __name__=="__main__":
     cipher = N, A
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

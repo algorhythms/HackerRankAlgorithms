@@ -33,13 +33,13 @@ class Solution(object):
 
         cnt = 0
         for val in lst:
-            target = val+K
+            target = val + K
             if target in hm:
                 cnt += hm[target]
         return cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -48,5 +48,5 @@ if __name__=="__main__":
     lst = map(int, f.readline().strip().split(' '))
     cipher = N, K, lst
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

@@ -19,24 +19,24 @@ class Solution(object):
         """
         N = cipher
 
-        if N%2==1:
+        if N % 2 == 1:
             return 0
 
         cnt = 0
         i = 1
         sq = math.sqrt(N)
-        while i<=sq:
-            if N%i==0:
-                if i%2==0:
+        while i <= sq:
+            if N % i == 0:
+                if i % 2 == 0:
                     cnt += 1
-                other = N/i
-                if other!=i and other%2==0:
+                other = N / i
+                if other != i and other % 2 == 0:
                     cnt += 1
             i += 1
         return cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -48,5 +48,5 @@ if __name__=="__main__":
         cipher = int(f.readline().strip())
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

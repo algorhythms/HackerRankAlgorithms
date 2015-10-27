@@ -32,25 +32,24 @@ class Solution(object):
         # T(n, r+1) >M
         low = 0
         high = N
-        while low+1<high:
-            mid = (low+high)/2
+        while low + 1 < high:
+            mid = (low + high) / 2
             r = self.Turan(N, mid)
 
-            if r<M:
+            if r < M:
                 low = mid
             else:
                 high = mid
         return high
 
-
     def Turan(self, n, r):
         """
         http://en.wikipedia.org/wiki/Tur%C3%A1n_graph
         """
-        return 0.5*(n**2-(n%r)*(n/r+1)**2-(r-(n%r))*(n/r)**2)
+        return 0.5 * (n ** 2 - (n % r) * (n / r + 1) ** 2 - (r - (n % r)) * (n / r) ** 2)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -62,5 +61,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

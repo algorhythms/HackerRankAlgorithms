@@ -40,13 +40,13 @@ class Solution(object):
         a = cipher[0]
         counter = 0
         for i in xrange(len(a)):
-            if a[i]=="0":
+            if a[i] == "0":
                 continue
             for j in xrange(i, len(a)):
                 # strength = self.strength(a, i, j)
-                strength = a[i:j+1]
+                strength = a[i:j + 1]
                 strength = int(strength)
-                if strength&(strength-1)==0:
+                if strength & (strength - 1) == 0:
                     counter += 1
         return counter
 
@@ -58,15 +58,15 @@ class Solution(object):
 
     def strength(self, a, i, j):
         # not used
-        if a[i]==0:
+        if a[i] == 0:
             return 0
         value = 0
-        for k in xrange(i, j+1):
-            value = value*10+a[k]
+        for k in xrange(i, j + 1):
+            value = value * 10 + a[k]
         return value
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -78,5 +78,5 @@ if __name__=="__main__":
         cipher = f.readline().strip().split(' ')
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

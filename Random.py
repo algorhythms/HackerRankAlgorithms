@@ -23,8 +23,9 @@ class Solution(object):
         # TODO
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -33,5 +34,5 @@ if __name__=="__main__":
     cipher = n, a, b, D
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

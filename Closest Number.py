@@ -29,19 +29,19 @@ class Solution(object):
         :param cipher: the cipher
         """
         a, b, x = cipher
-        if a>1:
-            result = int((a**b)/float(x)+0.5)*x
+        if a > 1:
+            result = int((a ** b) / float(x) + 0.5) * x
         else:
             result = 1
-        if result!=int(result):
-            if result>0.5 and x==1:
+        if result != int(result):
+            if result > 0.5 and x == 1:
                 return 1
             else:
                 return 0
         return result
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -53,5 +53,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

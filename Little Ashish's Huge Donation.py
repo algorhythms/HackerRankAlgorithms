@@ -30,21 +30,21 @@ class Solution(object):
         """
         l = 1
         h = cipher
-        while l<=h:
-            mid = (l+h)/2
-            if self.sum_of_squares(mid)<=cipher:
-                l = mid+1
+        while l <= h:
+            mid = (l + h) / 2
+            if self.sum_of_squares(mid) <= cipher:
+                l = mid + 1
             else:
-                h = mid-1
+                h = mid - 1
 
         l -= 1
         return l
 
     def sum_of_squares(self, n):
-        return n*(n+1)*(2*n+1)/6
+        return n * (n + 1) * (2 * n + 1) / 6
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -56,5 +56,5 @@ if __name__=="__main__":
         cipher = int(f.readline().strip())
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

@@ -21,16 +21,16 @@ class Solution(object):
         ret = [lst[0]]
         cnt = 0
         for i in xrange(1, len(lst)):
-            if lst[i]!=ret[-1]:
+            if lst[i] != ret[-1]:
                 ret.append(lst[i])
             else:
                 cnt += 1
         return cnt
 
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -41,5 +41,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

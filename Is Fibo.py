@@ -15,7 +15,7 @@ The first line contains T, number of test cases.
 T lines follows. Each line contains an integer N.
 """
 __author__ = 'Danyang'
-fib = lambda n: reduce(lambda x, n: [x[1], x[0]+x[1]], xrange(n), [0, 1])[0]
+fib = lambda n: reduce(lambda x, n: [x[1], x[0] + x[1]], xrange(n), [0, 1])[0]
 
 
 class Solution(object):
@@ -26,15 +26,15 @@ class Solution(object):
         """
         num = int(cipher)
         n = 0
-        while fib(n)<num:
+        while fib(n) < num:
             n += 1
-        if fib(n)==num:
+        if fib(n) == num:
             return "IsFibo"
         else:
             return "IsNotFibo"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -46,5 +46,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

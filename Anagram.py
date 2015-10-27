@@ -28,10 +28,10 @@ class Solution(object):
         """
         cipher = cipher[0]
         length = len(cipher)
-        if length&1==1:
+        if length & 1 == 1:
             return -1
-        str1 = cipher[:length/2]
-        str2 = cipher[length/2:]
+        str1 = cipher[:length / 2]
+        str2 = cipher[length / 2:]
         # str1_lst.sort()
         # str2_lst.sort()
         # # simplified edit distance
@@ -47,10 +47,10 @@ class Solution(object):
             bucket[ord(elt)] += 1
         for elt in str2:
             bucket[ord(elt)] -= 1
-        return sum(filter(lambda x: x>0, bucket))
+        return sum(filter(lambda x: x > 0, bucket))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -62,5 +62,5 @@ if __name__=="__main__":
         cipher = f.readline().strip().split(' ')
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

@@ -21,30 +21,30 @@ class Solution(object):
         A = map(ord, A)
         n = len(A)
 
-
         a = -1
-        for i in xrange(n-1, 0, -1):
-            if A[i-1]<A[i]:
-                a = i-1
+        for i in xrange(n - 1, 0, -1):
+            if A[i - 1] < A[i]:
+                a = i - 1
                 break
         else:
             return "no answer"
 
         b = -1
-        for i in xrange(n-1, a, -1):
-            if A[i]>A[a]:
+        for i in xrange(n - 1, a, -1):
+            if A[i] > A[a]:
                 b = i
                 break
         else:
             return "no answer"
 
         A[a], A[b] = A[b], A[a]  # swap
-        A = A[:a+1]+A[n-1:a:-1]  # reverse
+        A = A[:a + 1] + A[n - 1:a:-1]  # reverse
         return "".join(map(chr, A))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -55,5 +55,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

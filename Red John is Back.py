@@ -35,16 +35,16 @@ class Solution(object):
         return self.sum_prime(self.get_configs(cipher))
 
     def get_configs(self, N):
-        if N<4:
+        if N < 4:
             return 1
 
-        F = [0 for _ in xrange(N+1)]
+        F = [0 for _ in xrange(N + 1)]
         for i in xrange(1, 4):
             F[i] = 1
         F[4] = 2
 
-        for i in xrange(5, N+1):
-            F[i] = F[i-4]+F[i-1]
+        for i in xrange(5, N + 1):
+            F[i] = F[i - 4] + F[i - 1]
 
         return F[N]
 
@@ -53,13 +53,13 @@ class Solution(object):
         is_prime[2*j::j] = 0
         Sieve of Eratosthenes
         """
-        is_prime = [1 for _ in xrange(n+1)]
+        is_prime = [1 for _ in xrange(n + 1)]
         for i in xrange(2):
             is_prime[i] = 0
 
         n_max = int(math.sqrt(len(is_prime)))
-        for i in xrange(2, n_max+1):
-            for j in xrange(2*i, len(is_prime), i):
+        for i in xrange(2, n_max + 1):
+            for j in xrange(2 * i, len(is_prime), i):
                 is_prime[j] = 0
 
         return sum(is_prime)
@@ -70,16 +70,18 @@ class Solution(object):
         Sieve of Eratosthenes
         """
         import numpy as np
-        is_prime = np.ones((n+1, ), dtype=bool)
+
+        is_prime = np.ones((n + 1,), dtype=bool)
         is_prime[:2] = 0
         N_max = int(np.sqrt(len(is_prime)))  # just to speed up
         for j in xrange(2, N_max):
-            is_prime[2*j::j] = False  # not start from j, since don't clean j itself
+            is_prime[2 * j::j] = False  # not start from j, since don't clean j itself
         return np.sum(is_prime)
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -90,5 +92,5 @@ if __name__=="__main__":
         cipher = int(f.readline().strip())
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

@@ -10,8 +10,8 @@ __author__ = 'Danyang'
 
 class Solution(object):
     def __init__(self, N, M):
-        self.f = [0 for _ in xrange(N+1)]  # store the number of nodes of a subtree rooted at i
-        self.V = [[] for _ in xrange(N+1)]  # 0 is dummy
+        self.f = [0 for _ in xrange(N + 1)]  # store the number of nodes of a subtree rooted at i
+        self.V = [[] for _ in xrange(N + 1)]  # 0 is dummy
         self.E = []
 
     def solve(self, cipher):
@@ -31,11 +31,10 @@ class Solution(object):
         self.get_sum(1, 0)
 
         result = 0
-        for i in xrange(2, N+1):  # excluding root
-            if self.f[i]%2==0:
+        for i in xrange(2, N + 1):  # excluding root
+            if self.f[i] % 2 == 0:
                 result += 1
         return result
-
 
     def get_sum(self, cur, pi):
         """
@@ -43,9 +42,9 @@ class Solution(object):
         dp (graph is mostly top-down dp)
         dfs
         """
-        if self.f[cur]==0:
+        if self.f[cur] == 0:
             for nigh in self.V[cur]:
-                if nigh!=pi:
+                if nigh != pi:
                     self.f[cur] += self.get_sum(nigh, cur)  # child
 
             self.f[cur] += 1  # itself
@@ -53,7 +52,7 @@ class Solution(object):
         return self.f[cur]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -67,5 +66,5 @@ if __name__=="__main__":
 
     # solve
     cipher = N, M, E
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

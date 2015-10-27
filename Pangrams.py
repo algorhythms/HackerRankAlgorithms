@@ -24,7 +24,7 @@ class Solution(object):
         bucket = [False for _ in xrange(26)]
         for char in cipher:
             char = char.lower()
-            ind = ord(char)-ord('a')
+            ind = ord(char) - ord('a')
             try:
                 bucket[ind] = True
             except IndexError:
@@ -37,7 +37,7 @@ class Solution(object):
             return "not pangram"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -49,5 +49,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

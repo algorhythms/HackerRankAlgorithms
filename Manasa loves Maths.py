@@ -20,13 +20,13 @@ class Solution(object):
         :param cipher: the cipher
         """
         l = len(cipher)
-        if l==1:
-            if int(cipher)%8==0:
+        if l == 1:
+            if int(cipher) % 8 == 0:
                 return "YES"
             else:
                 return "NO"
-        elif l==2:
-            if int(cipher)%8==0 or int(cipher[::-1])%8==0:
+        elif l == 2:
+            if int(cipher) % 8 == 0 or int(cipher[::-1]) % 8 == 0:
                 return "YES"
             else:
                 return "NO"
@@ -38,19 +38,19 @@ class Solution(object):
 
         for i in xrange(0, 1000, 8):
             copy = list(hm)
-            s = "00"+str(i)
+            s = "00" + str(i)
             j = -1
-            while j>=-3:  # check 3 digits
+            while j >= -3:  # check 3 digits
                 d = int(s[j])
-                if copy[d]<=0: break
+                if copy[d] <= 0: break
                 copy[d] -= 1
                 j -= 1
-            if j==-4:
+            if j == -4:
                 return "YES"
         return "NO"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -62,5 +62,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

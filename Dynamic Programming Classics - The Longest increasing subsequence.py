@@ -27,13 +27,13 @@ class Solution(object):
         f = [1 for _ in xrange(N)]
         for i in xrange(1, N):
             for j in xrange(i):
-                if A[i]>A[j]:
-                    f[i] = max(f[i], f[j]+1)
+                if A[i] > A[j]:
+                    f[i] = max(f[i], f[j] + 1)
             maxa = max(maxa, f[i])
         return maxa
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -46,5 +46,5 @@ if __name__=="__main__":
         A.append(int(f.readline().strip()))
     cipher = N, A
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

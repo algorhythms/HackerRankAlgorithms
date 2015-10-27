@@ -26,24 +26,24 @@ class Solution(object):
         """
         N = cipher
         turn = 0
-        while N>1:
+        while N > 1:
             turn += 1
-            if N&(N-1)==0:
+            if N & (N - 1) == 0:
                 N /= 2
             else:
                 num = 1
-                while num<N:
+                while num < N:
                     num <<= 1
                 num >>= 1
                 N -= num
 
-        if turn&1==0:
+        if turn & 1 == 0:
             return "Richard"
         else:
             return "Louise"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -55,5 +55,5 @@ if __name__=="__main__":
         cipher = int(f.readline().strip())
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

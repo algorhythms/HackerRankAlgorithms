@@ -22,13 +22,14 @@ class Solution(object):
         s = map(ord, list(s))
         r = map(ord, list(r))
         for i in xrange(1, len(s)):
-            if abs(s[i]-s[i-1])!=abs(r[i]-r[i-1]):
+            if abs(s[i] - s[i - 1]) != abs(r[i] - r[i - 1]):
                 return "Not Funny"
         return "Funny"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -39,5 +40,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

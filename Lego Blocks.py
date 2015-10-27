@@ -39,23 +39,23 @@ class Solution(object):
         :return:
         """
         N, M = cipher
-        f = [0 for _ in xrange(M+1)]
-        s = [0 for _ in xrange(M+1)]
+        f = [0 for _ in xrange(M + 1)]
+        s = [0 for _ in xrange(M + 1)]
 
         f[0] = 1
-        for j in xrange(1, M+1):
+        for j in xrange(1, M + 1):
             for l in self.lens:
-                if j-l>=0:
-                    f[j] += f[j-l]
+                if j - l >= 0:
+                    f[j] += f[j - l]
                 f[j] %= MOD
 
         f_N = map(lambda x: pow(x, N, MOD), f)
 
-        for j in xrange(1, M+1):
+        for j in xrange(1, M + 1):
             s[j] = f_N[j]
-            if s[j]<=0: break
+            if s[j] <= 0: break
             for k in xrange(1, j):  # sum
-                s[j] -= f_N[j-k]*s[k]
+                s[j] -= f_N[j - k] * s[k]
                 s[j] %= MOD
         return s[M]
 
@@ -77,27 +77,27 @@ class Solution_TLE(object):
         :return:
         """
         N, M = cipher
-        f = [[0 for _ in xrange(M+1)] for _ in xrange(N+1)]
-        s = [[0 for _ in xrange(M+1)] for _ in xrange(N+1)]
+        f = [[0 for _ in xrange(M + 1)] for _ in xrange(N + 1)]
+        s = [[0 for _ in xrange(M + 1)] for _ in xrange(N + 1)]
 
         f[1][0] = 1
-        for j in xrange(1, M+1):
+        for j in xrange(1, M + 1):
             for l in self.lens:
-                if j-l>=0:
-                    f[1][j] += f[1][j-l]
+                if j - l >= 0:
+                    f[1][j] += f[1][j - l]
                     f[1][j] %= MOD
 
-        for i in xrange(2, N+1):
-            for j in xrange(1, M+1):
-                f[i][j] = f[i-1][j]*f[1][j]
+        for i in xrange(2, N + 1):
+            for j in xrange(1, M + 1):
+                f[i][j] = f[i - 1][j] * f[1][j]
                 f[i][j] %= MOD
 
-        for i in xrange(1, N+1):
-            for j in xrange(1, M+1):
+        for i in xrange(1, N + 1):
+            for j in xrange(1, M + 1):
                 s[i][j] = f[i][j]
-                if s[i][j]<=0: break
+                if s[i][j] <= 0: break
                 for k in xrange(1, j):  # sum
-                    s[i][j] -= f[i][j-k]*s[i][k]
+                    s[i][j] -= f[i][j - k] * s[i][k]
                     s[i][j] %= MOD
         return s[N][M]
 
@@ -111,27 +111,28 @@ class Solution_TLE(object):
         :param cipher: the cipher
         """
         N, M = cipher
-        f = [[0 for _ in xrange(M+1)] for _ in xrange(N+1)]
+        f = [[0 for _ in xrange(M + 1)] for _ in xrange(N + 1)]
 
         f[1][1] = 1
-        for j in xrange(1, M+1):
+        for j in xrange(1, M + 1):
             for l in self.lens:
-                if j-l>=1:
-                    f[1][j] += f[1][j-l]
-        for j in xrange(1, M+1):
-            f[1][j] -= f[1][j-1]
+                if j - l >= 1:
+                    f[1][j] += f[1][j - l]
+        for j in xrange(1, M + 1):
+            f[1][j] -= f[1][j - 1]
 
-        for i in xrange(2, N+1):
-            for j in xrange(1, M+1):
+        for i in xrange(2, N + 1):
+            for j in xrange(1, M + 1):
                 cmb = i
-                for l in xrange(1, i+1):
-                    f[i][j] += cmb*f[i-l][j-1]*(f[1][j]**i)  # equivalent
-                    cmb = cmb*(i-l)/(l+1)
+                for l in xrange(1, i + 1):
+                    f[i][j] += cmb * f[i - l][j - 1] * (f[1][j] ** i)  # equivalent
+                    cmb = cmb * (i - l) / (l + 1)
         return f[N][M]
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -142,5 +143,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

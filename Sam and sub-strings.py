@@ -9,7 +9,7 @@ find out the total number of candies in the box, T. As T can be large, Samantha 
 If Sam answers correctly, he can keep all the candies. Sam can't take all this Maths and asks for your help.
 """
 __author__ = 'Danyang'
-MOD = 1e9+7
+MOD = 1e9 + 7
 
 
 class Solution(object):
@@ -24,7 +24,7 @@ class Solution(object):
         num = A[0]
         sig = 1
         for i in xrange(1, len(A)):
-            num = 10*num+A[i]
+            num = 10 * num + A[i]
             sig *= 10
 
             temp = num
@@ -52,17 +52,18 @@ class Solution(object):
         pre = [0 for _ in cipher]
         pre[0] = int(cipher[0])
         for i in xrange(1, len(cipher)):
-            pre[i] = (pre[i-1]*10+int(cipher[i])*(i+1))%MOD
+            pre[i] = (pre[i - 1] * 10 + int(cipher[i]) * (i + 1)) % MOD
 
         s = 0
         for elt in pre:
-            s = (s+elt)%MOD
+            s = (s + elt) % MOD
 
         return int(s)
 
 
 if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -71,5 +72,5 @@ if __name__ == "__main__":
     cipher = f.readline().strip()
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

@@ -31,7 +31,7 @@ class Solution(object):
         return bit
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -43,5 +43,5 @@ if __name__=="__main__":
     cipher = map(int, f.readline().strip().split(' '))
 
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

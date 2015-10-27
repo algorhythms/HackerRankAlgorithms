@@ -19,14 +19,14 @@ class Solution(object):
         cnt = 0
         for char in cipher:
             digit = int(char)
-            if digit==0: continue
-            if num%digit==0:
+            if digit == 0: continue
+            if num % digit == 0:
                 cnt += 1
 
         return cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -38,5 +38,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

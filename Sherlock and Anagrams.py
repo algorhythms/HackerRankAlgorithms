@@ -5,6 +5,7 @@ Problem Statement
 Given a string S, find the number of unordered anagramic pairs of substrings.
 """
 import collections
+
 __author__ = 'Danyang'
 
 
@@ -21,19 +22,20 @@ class Solution(object):
         lst = list(cipher)
         n = len(lst)
         for i in xrange(n):
-            for l in xrange(1, n-i+1):
-                sub = lst[i: i+l]
+            for l in xrange(1, n - i + 1):
+                sub = lst[i: i + l]
                 sub.sort()
                 d["".join(sub)] += 1
 
         s = 0
         for v in d.values():
-            s += v*(v-1)/2
+            s += v * (v - 1) / 2
         return s
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -44,5 +46,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

@@ -24,16 +24,17 @@ class Solution(object):
         :param cipher: the cipher
         """
         L, S1, S2, qs = cipher
-        v = abs(S1-S2)/math.sqrt(2)
+        v = abs(S1 - S2) / math.sqrt(2)
         rets = []
         for q in qs:
-            t = (L-math.sqrt(q))/v
+            t = (L - math.sqrt(q)) / v
             rets.append(t)
-        return "\n".join(map(lambda x: "%f"%x, rets))
+        return "\n".join(map(lambda x: "%f" % x, rets))
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -46,5 +47,5 @@ if __name__=="__main__":
     # construct cipher
     cipher = L, S1, S2, qs
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

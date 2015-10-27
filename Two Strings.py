@@ -15,14 +15,15 @@ class Solution(object):
         """
         a = map(set, cipher)
         ret = a[0].intersection(a[1])
-        if len(ret)>0:
+        if len(ret) > 0:
             return "YES"
         else:
             return "NO"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -34,5 +35,5 @@ if __name__=="__main__":
         cipher.append(f.readline().strip())
         cipher.append(f.readline().strip())
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

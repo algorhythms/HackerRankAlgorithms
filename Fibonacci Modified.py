@@ -19,14 +19,14 @@ class Solution(object):
 
         a, b = A, B
         cnt = 1
-        while cnt<N:
+        while cnt < N:
             cnt += 1
-            a, b = b, b*b+a
+            a, b = b, b * b + a
 
         return a
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -36,5 +36,5 @@ if __name__=="__main__":
     cipher = map(int, f.readline().strip().split(' '))
 
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

@@ -41,26 +41,25 @@ class Solution(object):
 
         return global_max
 
-
     def get_longest(self, S, p, q, i, j):
         start_i = i
         start_j = j
         local_max = 0
         n = len(p)
         cur_diff = 0
-        while i<n and j<n:
-            if p[i]!=q[j]:
+        while i < n and j < n:
+            if p[i] != q[j]:
                 cur_diff += 1
 
-            if cur_diff>S:  # then shrink the left side of window
-                while p[start_i]==q[start_j]:
+            if cur_diff > S:  # then shrink the left side of window
+                while p[start_i] == q[start_j]:
                     start_i += 1
                     start_j += 1
                 start_i += 1
                 start_j += 1
                 cur_diff -= 1
 
-            local_max = max(local_max, i-start_i+1)
+            local_max = max(local_max, i - start_i + 1)
 
             i += 1
             j += 1
@@ -68,7 +67,7 @@ class Solution(object):
         return local_max
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -80,5 +79,5 @@ if __name__=="__main__":
         cipher = f.readline().strip().split(' ')
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

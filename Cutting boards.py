@@ -20,7 +20,7 @@ For each test case, the first line contains two positive integers M and N separa
 there are integers y1, y2, ..., ym-1, separated by spaces. Following them are integers x1, x2, ..., xn-1, separated by
 spaces.
 """
-MOD = 10**9+7
+MOD = 10 ** 9 + 7
 __author__ = 'Danyang'
 
 
@@ -29,7 +29,7 @@ class Cost(object):
         self.cost = 0
 
     def __iadd__(self, other):
-        self.cost = (self.cost+other%MOD)%MOD
+        self.cost = (self.cost + other % MOD) % MOD
         return self
 
 
@@ -38,7 +38,7 @@ class Solution(object):
         """
         Greedy approach
 
-        Fixed #6 - #11 Wrong Answer due to Cost class 
+        Fixed #6 - #11 Wrong Answer due to Cost class
         :param cipher: the cipher
         """
         M, N, Y, X = cipher
@@ -52,23 +52,23 @@ class Solution(object):
         while x and y:
             x_max = x[-1]
             y_max = y[-1]
-            if x_max>y_max:
-                cost += x.pop()*(M-len(y))
-            elif y_max>x_max:
-                cost += y.pop()*(N-len(x))
+            if x_max > y_max:
+                cost += x.pop() * (M - len(y))
+            elif y_max > x_max:
+                cost += y.pop() * (N - len(x))
             else:
-                if sum(x)>sum(y):
-                    cost += x.pop()*(M-len(y))
+                if sum(x) > sum(y):
+                    cost += x.pop() * (M - len(y))
                 else:
-                    cost += y.pop()*(N-len(x))
+                    cost += y.pop() * (N - len(x))
         while x:
-            cost += x.pop()*(M-len(y))
+            cost += x.pop() * (M - len(y))
         while y:
-            cost += y.pop()*(N-len(x))
+            cost += y.pop() * (N - len(x))
         return cost.cost
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -82,5 +82,5 @@ if __name__=="__main__":
         X = map(int, f.readline().strip().split(" "))
         cipher = [M, N, Y, X]
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

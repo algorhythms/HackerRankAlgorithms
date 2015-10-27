@@ -29,20 +29,21 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, A = cipher
-        l = N+1
+        l = N + 1
 
         E = 0
         for cur in A:
             k = 0
             for a in A:
-                if a>=cur:
+                if a >= cur:
                     k += 1  # including itself
-            E += float(l)/(k+1)
+            E += float(l) / (k + 1)
         return "%.2f" % E
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()

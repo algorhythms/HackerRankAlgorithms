@@ -38,38 +38,38 @@ class Solution(object):
         A, P, Q = cipher
         A.sort()
 
-        gmax = -1<<32
+        gmax = -1 << 32
         M = -1
-        if P<=A[0] and gmax<A[0]-P:
-            gmax = A[0]-P
+        if P <= A[0] and gmax < A[0] - P:
+            gmax = A[0] - P
             M = P
-        if Q>=A[-1] and gmax<Q-A[-1]:
-            gmax = Q-A[-1]
+        if Q >= A[-1] and gmax < Q - A[-1]:
+            gmax = Q - A[-1]
             M = Q
 
         for i in xrange(1, len(A)):
-            max_cnd = (A[i]-A[i-1])/2  # max_candidate
-            if gmax<max_cnd:
-                M_cnd = (A[i]+A[i-1])/2
-                if P<=M_cnd<=Q:
+            max_cnd = (A[i] - A[i - 1]) / 2  # max_candidate
+            if gmax < max_cnd:
+                M_cnd = (A[i] + A[i - 1]) / 2
+                if P <= M_cnd <= Q:
                     gmax = max_cnd
                     M = M_cnd
 
                 else:  # fall in the middle
-                    if M_cnd>Q and A[i-1]<=Q<=A[i]:
-                        max_cnd = min(abs(A[i]-Q), abs(A[i-1]-Q))
-                        if gmax<max_cnd:
+                    if M_cnd > Q and A[i - 1] <= Q <= A[i]:
+                        max_cnd = min(abs(A[i] - Q), abs(A[i - 1] - Q))
+                        if gmax < max_cnd:
                             gmax = max_cnd
                             M = Q
-                    if M_cnd<P and A[i-1]<=P<=A[i]:
-                        max_cnd = min(abs(A[i]-P), abs(A[i-1]-P))
-                        if gmax<max_cnd:
+                    if M_cnd < P and A[i - 1] <= P <= A[i]:
+                        max_cnd = min(abs(A[i] - P), abs(A[i - 1] - P))
+                        if gmax < max_cnd:
                             gmax = max_cnd
                             M = P
         return M
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -82,5 +82,5 @@ if __name__=="__main__":
     P, Q = map(int, f.readline().strip().split(" "))
     cipher = lst, P, Q
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

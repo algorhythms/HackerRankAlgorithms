@@ -30,23 +30,23 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, K = cipher
-        LSB = pow(2, N-1, 10**K)
+        LSB = pow(2, N - 1, 10 ** K)
 
         # calculate MSB
-        MSB = int(str(self.get_MSB(2, N-1)*10**K)[:K])
+        MSB = int(str(self.get_MSB(2, N - 1) * 10 ** K)[:K])
 
-        return MSB+LSB
+        return MSB + LSB
 
     def get_MSB(self, b, n):
         """
         Use Decimal() otherwise only works for small numbers
         """
-        p = Decimal(n)*Decimal(b).log10()
-        f = Decimal(p)-Decimal(math.floor(p))
-        return Decimal(10)**f
+        p = Decimal(n) * Decimal(b).log10()
+        f = Decimal(p) - Decimal(math.floor(p))
+        return Decimal(10) ** f
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -59,5 +59,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

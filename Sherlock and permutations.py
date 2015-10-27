@@ -10,7 +10,7 @@ Input Format
 First line contains T, the number of test cases.
 Each test case consists of N and M separated by a space.
 """
-MOD = 10**9+7
+MOD = 10 ** 9 + 7
 import math
 
 __author__ = 'Danyang'
@@ -23,10 +23,10 @@ class Solution(object):
         :param cipher: the cipher
         """
         N, M = cipher
-        return math.factorial(N+M-1)/math.factorial(N)/math.factorial(M-1)%MOD
+        return math.factorial(N + M - 1) / math.factorial(N) / math.factorial(M - 1) % MOD
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -38,5 +38,5 @@ if __name__=="__main__":
         cipher = map(int, f.readline().strip().split(' '))
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

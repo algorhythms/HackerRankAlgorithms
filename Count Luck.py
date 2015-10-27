@@ -29,9 +29,9 @@ class Solution(object):
         end = None
         for i in xrange(M):
             for j in xrange(N):
-                if matrix[i][j]=="M":
+                if matrix[i][j] == "M":
                     start = (i, j)
-                elif matrix[i][j]=="*":
+                elif matrix[i][j] == "*":
                     end = (i, j)
 
         pi = [[None for _ in xrange(N)] for _ in xrange(M)]
@@ -45,14 +45,14 @@ class Solution(object):
             for i in xrange(l):
                 cur = q[i]
                 for dir in dirs:
-                    r = cur[0]+dir[0]
-                    c = cur[1]+dir[1]
-                    if 0<=r<M and 0<=c<N and not visited[r][c]:
+                    r = cur[0] + dir[0]
+                    c = cur[1] + dir[1]
+                    if 0 <= r < M and 0 <= c < N and not visited[r][c]:
                         visited[r][c] = True
                         if matrix[r][c] in (".", "*"):
                             pi[r][c] = cur
                             q.append((r, c))
-                        if matrix[r][c]=="*":
+                        if matrix[r][c] == "*":
                             ended = True
             q = q[l:]
 
@@ -61,7 +61,7 @@ class Solution(object):
 
         path = [end]
         cur = end
-        while cur!=start:
+        while cur != start:
             cur = pi[cur[0]][cur[1]]
             path.append(cur)
 
@@ -73,25 +73,25 @@ class Solution(object):
             dir_cnt = 0
             visited[cur[0]][cur[1]] = True
             for dir in dirs:
-                r = cur[0]+dir[0]
-                c = cur[1]+dir[1]
-                if 0<=r<M and 0<=c<N:
+                r = cur[0] + dir[0]
+                c = cur[1] + dir[1]
+                if 0 <= r < M and 0 <= c < N:
                     if matrix[r][c] in (".", "*") and not visited[r][c]:
                         dir_cnt += 1
-            if dir_cnt>1:
+            if dir_cnt > 1:
                 cnt += 1
-                self.logger.debug("Wand@"+str(cur))
-            if cnt>K:
+                self.logger.debug("Wand@" + str(cur))
+            if cnt > K:
                 return "Oops!"
 
-        self.logger.debug("cnt: %d, K: %d"%(cnt, K))
-        if cnt==K:  # exactly K times
+        self.logger.debug("cnt: %d, K: %d" % (cnt, K))
+        if cnt == K:  # exactly K times
             return "Impressed"
         else:
             return "Oops!"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     f = open("1.in", "r")
     # f = sys.stdin
     testcases = int(f.readline().strip())
@@ -106,5 +106,5 @@ if __name__=="__main__":
         cipher = M, N, matrix, K
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,

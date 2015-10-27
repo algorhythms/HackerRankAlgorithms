@@ -31,13 +31,13 @@ class Solution(object):
         for i in xrange(m):
             for j in xrange(n):
                 if not changed:  # control the start from top, left
-                    if grid[i][j]==0:
+                    if grid[i][j] == 0:
                         changed = True
                         grid[i][j] = 1
                         for d in self.delta:
-                            i2 = i+d[0]
-                            j2 = j+d[1]
-                            if 0<=i2<m and 0<=j2<n and grid[i2][j2]==0:
+                            i2 = i + d[0]
+                            j2 = j + d[1]
+                            if 0 <= i2 < m and 0 <= j2 < n and grid[i2][j2] == 0:
                                 grid[i2][j2] = 1
                                 if self.rec(grid):
                                     return True
@@ -47,8 +47,9 @@ class Solution(object):
             return True
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -61,5 +62,5 @@ if __name__=="__main__":
             cipher.append(map(int, list(f.readline().strip())))
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

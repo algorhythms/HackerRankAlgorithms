@@ -18,7 +18,7 @@ class DisjointSet(object):
         self.n = n
 
     def find(self, i):
-        if i==self.parent[i]:
+        if i == self.parent[i]:
             return i
         else:
             self.parent[i] = self.find(self.parent[i])  # directly point to ancestor
@@ -28,14 +28,14 @@ class DisjointSet(object):
         x = self.find(i)
         y = self.find(j)
 
-        if x==y: return
+        if x == y: return
         self.parent[x] = y
         self.rank[y] += self.rank[x]
 
     def card(self):
         card = 0
         for i in xrange(self.n):
-            if self.parent[i]==i:
+            if self.parent[i] == i:
                 card += 1
         return card
 
@@ -55,13 +55,13 @@ class Solution(object):
 
         result = 0
         for i in xrange(N):
-            if djs.find(i)==i:  # set representative
+            if djs.find(i) == i:  # set representative
                 # result += (djs.rank[i])*(N-djs.rank[i])/2  # otherwise rounding error
-                result += (djs.rank[i])*(N-djs.rank[i])
-        return result/2
+                result += (djs.rank[i]) * (N - djs.rank[i])
+        return result / 2
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -76,5 +76,5 @@ if __name__=="__main__":
 
     cipher = N, pairs
     # solve
-    s = "%s\n"%(solution.solve(cipher))
+    s = "%s\n" % (solution.solve(cipher))
     print s,

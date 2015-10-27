@@ -17,8 +17,9 @@ The first line contains an integer N.
 This is followed by N lines containing pairs of space separated integers, x and y which represent the coordinates of the
 points in the cartesian plane.
 """
-__author__ = 'Danyang'
 import math
+
+__author__ = 'Danyang'
 
 
 class Solution(object):
@@ -40,20 +41,20 @@ class Solution(object):
         x2 = b[0]
         y2 = b[1]
         # (0, 0) as anchor point
-        cross_product = x1*y2-x2*y1
-        if cross_product>0:
+        cross_product = x1 * y2 - x2 * y1
+        if cross_product > 0:
             return -1
-        elif cross_product<0:
+        elif cross_product < 0:
             return 1
         else:
-            if x1*x1>=0 and y1*y1>=0:
-                return x1*x1+y1*y1-x2*x2-y2*y2
+            if x1 * x1 >= 0 and y1 * y1 >= 0:
+                return x1 * x1 + y1 * y1 - x2 * x2 - y2 * y2
             else:
-                if y1>0:
+                if y1 > 0:
                     return -1
-                if y2>0:
+                if y2 > 0:
                     return 1
-                if y1==0 and x1>0:
+                if y1 == 0 and x1 > 0:
                     return -1
                 else:
                     return 1
@@ -66,23 +67,23 @@ class Solution(object):
         y1 = a[1]
         x2 = b[0]
         y2 = b[1]
-        r1 = x1*x1+y1*y1
-        r2 = x2*x2+y2*y2
+        r1 = x1 * x1 + y1 * y1
+        r2 = x2 * x2 + y2 * y2
         phi1 = math.atan2(y1, x1)
         phi2 = math.atan2(y2, x2)
-        if phi1<0:
-            phi1 += math.pi*2
-        if phi2<0:
-            phi2 += math.pi*2
-        if phi1<phi2:
+        if phi1 < 0:
+            phi1 += math.pi * 2
+        if phi2 < 0:
+            phi2 += math.pi * 2
+        if phi1 < phi2:
             return -1
-        elif phi1>phi2:
+        elif phi1 > phi2:
             return 1
         else:
-            return r1-r2
+            return r1 - r2
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -96,4 +97,4 @@ if __name__=="__main__":
         # solve
     Solution().solve(cipher)
     for point in cipher:
-        print "%d %d"%(point[0], point[1])
+        print "%d %d" % (point[0], point[1])

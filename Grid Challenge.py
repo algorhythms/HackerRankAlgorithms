@@ -30,14 +30,15 @@ class Solution(object):
         cipher = map(lambda x: sorted(x), cipher)
         # print cipher
         for j in xrange(n):
-            for i in xrange(m-1):
-                if cipher[i][j]>cipher[i+1][j]:
+            for i in xrange(m - 1):
+                if cipher[i][j] > cipher[i + 1][j]:
                     return "NO"
         return "YES"
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("1.in", "r")
     # f = sys.stdin
     solution = Solution()
@@ -51,5 +52,5 @@ if __name__=="__main__":
             cipher.append(list(f.readline().strip()))
 
         # solve
-        s = "%s\n"%(solution.solve(cipher))
+        s = "%s\n" % (solution.solve(cipher))
         print s,

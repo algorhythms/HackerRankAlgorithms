@@ -31,15 +31,15 @@ class Solution(object):
 
         C.sort(reverse=True)
 
-        group_cnt = N/K+1  # 1 is the last remaining group
+        group_cnt = N / K + 1  # 1 is the last remaining group
         total_cost = 0
         for i in xrange(group_cnt):
-            unit_cost = i+1
-            total_cost += unit_cost*sum(C[i*K:(i+1)*K])
+            unit_cost = i + 1
+            total_cost += unit_cost * sum(C[i * K:(i + 1) * K])
         return total_cost
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -48,5 +48,5 @@ if __name__=="__main__":
     C = map(int, f.readline().strip().split(' '))
     cipher = N, K, C
     # solve
-    s = "%s\n"%(Solution().solve(cipher))
+    s = "%s\n" % (Solution().solve(cipher))
     print s,

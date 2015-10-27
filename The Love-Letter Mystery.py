@@ -26,20 +26,20 @@ class Solution(object):
         :param cipher: the cipher
         """
         start_ptr = 0
-        end_ptr = len(cipher)-1
+        end_ptr = len(cipher) - 1
 
         cnt = 0
-        while start_ptr<end_ptr:
-            ord1 = ord(cipher[start_ptr])-ord('a')
-            ord2 = ord(cipher[end_ptr])-ord('a')
-            cnt += abs(ord1-ord2)
+        while start_ptr < end_ptr:
+            ord1 = ord(cipher[start_ptr]) - ord('a')
+            ord2 = ord(cipher[end_ptr]) - ord('a')
+            cnt += abs(ord1 - ord2)
             start_ptr += 1
             end_ptr -= 1
 
         return cnt
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
 
     f = open("1.in", "r")
@@ -51,5 +51,5 @@ if __name__=="__main__":
         cipher = f.readline().strip()
 
         # solve
-        s = "%s\n"%(Solution().solve(cipher))
+        s = "%s\n" % (Solution().solve(cipher))
         print s,
