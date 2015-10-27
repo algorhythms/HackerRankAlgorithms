@@ -10,8 +10,9 @@ class Solution(object):
         """
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     import sys
+
     f = open("0.in", "r")
     # f = sys.stdin
     solution = Solution()
